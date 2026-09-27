@@ -380,7 +380,7 @@ pre.code{background:#000;color:#EDEDED;border-radius:12px;padding:14px;font-size
 .m-bar i{width:7px;height:7px;border-radius:50%;background:rgba(128,128,128,.55)}
 .m-bar span{margin-left:8px;font-size:10.5px;opacity:.75;background:rgba(128,128,128,.15);border-radius:6px;padding:2px 8px;flex:1}
 .m-nav{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;font-size:10.5px}
-.m-nav b{font-family:var(--b-fd);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45%}
+.m-nav b{font-family:var(--b-fd);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45%;line-height:1.35;padding-bottom:1px}
 .m-nav>span{opacity:.75;display:flex;gap:9px;white-space:nowrap}
 .m-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:10px;padding:8px 12px 16px;align-items:center}
 .m-hero h4{font-family:var(--b-fd);font-size:17px;line-height:1.02;margin:0 0 6px;word-break:break-word}
@@ -1215,7 +1215,7 @@ Screens.profil = {
         <button class="row" data-act="logout"><span class="thumb ic">${svg('<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/>')}</span><span><b>Se déconnecter</b></span><em></em></button>
       </div>
       <p class="sign">by Lyliie RBL Digital</p>
-      <p class="fine" style="text-align:center">Version 3.3</p>
+      <p class="fine" style="text-align:center">Version 3.4</p>
     </section>`;
   },
 };
@@ -2137,8 +2137,8 @@ Screens.connexion = {
       ${coachCard('accueil', null, {always: true, big: true})}
       ${App.otpEmail ? `
         <h1>Vérifie tes e-mails</h1>
-        <p class="lead">On a envoyé un lien de connexion à <b>${esc(App.otpEmail)}</b>. Clique dessus, ou entre le code à 6 chiffres s’il y en a un dans l’e-mail.</p>
-        <label class="field"><span>Code reçu</span><input class="input" id="login-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456"></label>
+        <p class="lead">On a envoyé un lien de connexion à <b>${esc(App.otpEmail)}</b>. Clique dessus, ou entre le code reçu dans l’e-mail.</p>
+        <label class="field"><span>Code reçu</span><input class="input" id="login-code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="12345678"></label>
         <button class="btn btn-red btn-block" data-act="verify">Valider le code</button>
         <button class="mini-btn" data-act="changeemail" style="display:block;margin:14px auto 0">Utiliser une autre adresse</button>
         <p class="fine">Rien reçu ? Regarde dans tes spams, l’e-mail peut mettre une minute à arriver.</p>`
