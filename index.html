@@ -734,6 +734,19 @@ a.row{text-decoration:none;color:var(--text)}
 .p2-item>p{font-size:12px;opacity:.7;margin:8px 0 0;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .p2-item .mock-card+.mock-card{margin-top:8px}
 
+/* ===== Export PDF v3 : rendu propre ===== */
+.stage *{box-shadow:none !important}
+.stage .bb-card{border:1px solid var(--b-line)}
+.stage .bb-pills span{border:1px solid var(--b-line)}
+.stage .bb-ic{border:1.5px solid currentColor}
+.stage .bb-phrase .bb-ic{border:0}
+.stage .bb-dot i{border:1px solid var(--b-line)}
+.stage .lg,.stage .mock-post,.stage .m-web,.stage .m-sig{border:1px solid var(--b-line)}
+.stage .bb-quote{font-size:13px;line-height:1.05}
+.stage.print .bp-doc{align-items:start}
+.stage.print .bb-card{height:100%}
+.stage.print .bb-portrait{align-self:stretch}
+
 /* Toast */
 .toast{position:fixed;left:50%;bottom:calc(120px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:11px 16px;border-radius:999px;font-weight:700;font-size:13.5px;opacity:0;pointer-events:none;transition:all .25s var(--ease);z-index:50;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -1199,7 +1212,7 @@ Screens.profil = {
         <button class="row" data-act="logout"><span class="thumb ic">${svg('<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/>')}</span><span><b>Se déconnecter</b></span><em></em></button>
       </div>
       <p class="sign">by Lyliie RBL Digital</p>
-      <p class="fine" style="text-align:center">Version 3.1</p>
+      <p class="fine" style="text-align:center">Version 3.2</p>
     </section>`;
   },
 };
@@ -1480,7 +1493,8 @@ Screens.brand = {
     const univText = univLabels.length ? `Un univers ${listFr(univLabels.map(x => x.toLowerCase()))}, à ton image.` : '';
     const who = [...(id.targets || []), id.audience].filter(Boolean).join(', ');
     const hasPos = !!(who || id.problem || id.transformation);
-    const phrase = (who || id.transformation) ? `J’aide ${id.audience || (id.targets || []).join(' et ').toLowerCase() || 'mes clientes'}${id.transformation ? ' : ' + id.transformation.replace(/\.$/, '') : ' à construire une marque qui leur ressemble'}.` : '';
+    const lc = x => x ? x.charAt(0).toLowerCase() + x.slice(1) : x;
+    const phrase = (who || id.transformation) ? `J’aide ${lc(id.audience) || (id.targets || []).join(' et ').toLowerCase() || 'mes clientes'}${id.transformation ? ' à ' + lc(id.transformation.trim().replace(/\.$/, '')) : ' à construire une marque qui leur ressemble'}.` : '';
     const picked = p.colors.picked || [];
     const colorsShown = picked.length ? picked.slice(0, 5) : ROLES.slice(0, 4).map(([k]) => c[k]);
     const sub = Engine.sub(p);
@@ -1548,7 +1562,7 @@ Screens.brand = {
 
         <section class="bp-sec bb-card" id="bb-univ">
           ${head('<em>03</em> Ton univers visuel', 'mood', 'mood')}
-          ${mosaic.length ? `<div class="bb-mosaic">${mosaic.slice(0, 2).map(x => `<img src="${x}" alt="" loading="lazy">`).join('')}<span class="bb-quote" style="background:${c.dark};color:${c.light};font-family:${t.fd};font-weight:${t.pair.w};${up}">${S}</span>${mosaic.slice(2, 5).map(x => `<img src="${x}" alt="" loading="lazy">`).join('')}</div>
+          ${mosaic.length ? `<div class="bb-mosaic">${mosaic.slice(0, 2).map(x => `<img src="${x}" alt="" loading="lazy">`).join('')}<span class="bb-quote" style="background:${c.dark};color:${c.light};font-family:${t.fd};font-weight:${t.pair.w};${up}">${(id.slogan || '').length > 0 && (id.slogan || '').length <= 22 ? S : N}</span>${mosaic.slice(2, 5).map(x => `<img src="${x}" alt="" loading="lazy">`).join('')}</div>
             <p class="bb-cap">${esc(univText)}</p>` : todo('Choisis ton univers', 'mood')}
           ${p.mood.avoid.length ? `<p class="avoid"><b>À éviter</b> ${p.mood.avoid.map(esc).join(', ').toLowerCase()}.</p>` : ''}
         </section>
@@ -2625,7 +2639,11 @@ async function stageBrand(p, opts = {}){
   await Promise.all([...new Set(srcs)].map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; })));
   try { await document.fonts.ready; } catch(e){}
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  fixSvgs(host);
   return host;
+}
+function fixSvgs(root){
+  root.querySelectorAll('svg').forEach(sv => { const r = sv.getBoundingClientRect(); if (r.width && r.height){ sv.setAttribute('width', Math.round(r.width)); sv.setAttribute('height', Math.round(r.height)); } });
 }
 Exporter.pdf = async function(p, set){
   const jsPDF = window.jspdf && window.jspdf.jsPDF;
@@ -2650,6 +2668,7 @@ Exporter.pdf = async function(p, set){
     host.appendChild(p2);
     host.querySelectorAll('.bp-doc #bp-logo, .bp-doc #bp-supports, .bp-doc .bb-sep').forEach(el => el.remove());
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    fixSvgs(p2);
 
     const pdf = new jsPDF({unit:'mm', format:'a4', orientation:'portrait', compress:true});
     const PW = 210, PH = 297, M = 8;
