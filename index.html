@@ -15,6 +15,7 @@
 :root{
   --red:#E8132B;--red-deep:#B30F21;--red-soft:#2B0A0F;
   --bg:#050505;--surface:#131313;--raised:#1B1B1B;--text:#FFFFFF;--muted:#A8A8A8;--line:#2A2A2A;
+  --red-rgb:232,19,43;--on-red:#fff;
   --ff-script:"Caveat",cursive;--ff-label:"Rajdhani",system-ui,sans-serif;
   color-scheme:dark;
   --ff-d:"Bangers",Impact,"Arial Black",sans-serif;
@@ -518,13 +519,13 @@ h1{font-family:var(--ff-d);font-weight:400;font-size:clamp(32px,9vw,40px);letter
 body[data-view="home"] .topbar,body[data-view="connexion"] .topbar{display:none}
 .rbl-logo{display:inline-flex;flex-direction:column;line-height:.82;font-family:"Bangers",Impact,sans-serif;color:#fff;font-style:italic}
 .rbl-logo .l1{font-size:26px;letter-spacing:.02em;display:flex;align-items:flex-start;gap:2px}
-.rbl-logo .l2{font-size:17px;color:var(--red);letter-spacing:.06em;margin-left:8px}
-.rbl-logo .crown{width:22px;height:16px;color:var(--red);margin-top:-6px}
+.rbl-logo .l2{font-size:17px;color:#E8132B;letter-spacing:.06em;margin-left:8px}
+.rbl-logo .crown{width:22px;height:16px;color:#E8132B;margin-top:-6px}
 .rbl-logo.logo-sm .l1{font-size:20px}.rbl-logo.logo-sm .l2{font-size:13px}.rbl-logo.logo-sm .crown{width:16px;height:12px}
 .rbl-logo.logo-lg .l1{font-size:64px}.rbl-logo.logo-lg .l2{font-size:40px;margin-left:22px}.rbl-logo.logo-lg .crown{width:46px;height:34px;margin-top:-10px}
 .home-top{text-align:center;padding:6px 0 14px}
 .tagline{font-family:var(--ff-label);letter-spacing:.3em;font-size:12px;font-weight:700;margin:10px 0 0;color:#EDEDED}
-.coach-card{position:relative;border-radius:18px;overflow:hidden;margin:0 0 18px;border:1px solid rgba(232,19,43,.55);box-shadow:0 0 0 1px rgba(232,19,43,.2),0 16px 40px -18px rgba(232,19,43,.7);animation:coachIn .5s var(--ease) both;background:#0C0C0C}
+.coach-card{position:relative;border-radius:18px;overflow:hidden;margin:0 0 18px;border:1px solid rgba(var(--red-rgb),.55);box-shadow:0 0 0 1px rgba(var(--red-rgb),.2),0 16px 40px -18px rgba(var(--red-rgb),.7);animation:coachIn .5s var(--ease) both;background:#0C0C0C}
 .coach-card img{display:block;width:100%;height:auto}
 .coach-card:not(.big){max-width:280px;margin-left:auto;margin-right:auto}
 .coach-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;font-size:22px;line-height:1;cursor:pointer}
@@ -534,14 +535,14 @@ body[data-view="home"] .topbar,body[data-view="connexion"] .topbar{display:none}
 .home-title em,h1 em{color:var(--red);font-style:normal}
 .script{font-family:var(--ff-script);font-size:26px;font-weight:700;text-align:center;margin:0 0 20px;color:#F2F2F2;transform:rotate(-2deg)}
 .btn{font-family:var(--ff-label);text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:16px}
-.btn-red{box-shadow:0 10px 26px -10px rgba(232,19,43,.8)}
+.btn-red{box-shadow:0 10px 26px -10px rgba(var(--red-rgb),.8)}
 .btn-dark{background:#fff;color:#000}
 .btn-ghost{background:#161616;color:#fff;border:1px solid #2A2A2A}
 .btn-cta{min-height:58px;font-size:18px;border-radius:16px}
 .kick-c{font-family:var(--ff-label);font-weight:700;letter-spacing:.2em;font-size:12px;text-align:center;margin:26px 0 12px;color:#DADADA}
 .lv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
 .lv-tile{background:#111;border:1px solid #232323;border-radius:14px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
-.lv-tile svg{width:28px;height:28px;color:var(--red);filter:drop-shadow(0 0 6px rgba(232,19,43,.7))}
+.lv-tile svg{width:28px;height:28px;color:var(--red);filter:drop-shadow(0 0 6px rgba(var(--red-rgb),.7))}
 .lv-tile span{font-family:var(--ff-label);font-size:10.5px;letter-spacing:.14em;color:#9A9A9A;text-transform:uppercase;font-weight:700}
 .lv-tile b{font-size:12.5px;font-weight:700}
 .sign{font-family:var(--ff-script);color:var(--red);text-align:center;font-size:22px;margin:22px 0 0;transform:rotate(-3deg)}
@@ -551,7 +552,7 @@ body[data-view="home"] .topbar,body[data-view="connexion"] .topbar{display:none}
 .seg span{background:#262626}
 .seg.done span{background:#fff}
 .pick{background:#111;border:2px solid #222}
-.pick[aria-pressed="true"]{border-color:var(--red);background:#140709;box-shadow:0 0 18px -2px rgba(232,19,43,.55)}
+.pick[aria-pressed="true"]{border-color:var(--red);background:#140709;box-shadow:0 0 18px -2px rgba(var(--red-rgb),.55)}
 .fmt{background:#111;border:1px solid #232323}
 .fmt.big{background:#141414;border-color:#2C2C2C}
 .chip{background:#0F0F0F;border-color:#2C2C2C;color:#EEE}
@@ -574,7 +575,7 @@ body.has-tabs.has-bar main{padding-bottom:200px}
 body.has-tabs .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 /* Profil et FAQ */
 .prof-head{display:flex;align-items:center;gap:14px;background:#111;border:1px solid #232323;border-radius:18px;padding:16px;margin-bottom:18px}
-.avatar{width:64px;height:64px;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px -4px rgba(232,19,43,.8);flex:none}
+.avatar{width:64px;height:64px;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px -4px rgba(var(--red-rgb),.8);flex:none}
 .avatar .crown{width:32px;height:24px;color:var(--red)}
 .prof-head b{font-family:var(--ff-d);font-weight:400;font-size:24px;letter-spacing:.03em;display:block}
 .prof-head small{color:var(--muted);font-size:13px}
@@ -590,7 +591,7 @@ a.row{text-decoration:none;color:var(--text)}
 /* ===== Lot 2 : levels ===== */
 .tabs2{display:flex;background:#111;border:1px solid #232323;border-radius:999px;padding:4px;gap:4px;margin:0 0 16px}
 .tabs2 button{flex:1;border:0;background:none;color:#BDBDBD;border-radius:999px;padding:10px 12px;font-family:var(--ff-label);font-weight:700;font-size:14px;letter-spacing:.03em;cursor:pointer;white-space:nowrap}
-.tabs2 button.on{background:var(--red);color:#fff;box-shadow:0 6px 16px -8px rgba(232,19,43,.9)}
+.tabs2 button.on{background:var(--red);color:#fff;box-shadow:0 6px 16px -8px rgba(var(--red-rgb),.9)}
 .tabs2.scroll{overflow-x:auto;scrollbar-width:none;border-radius:16px}
 .tabs2.scroll::-webkit-scrollbar{display:none}
 .tabs2.scroll button{flex:0 0 auto}
@@ -598,7 +599,7 @@ a.row{text-decoration:none;color:var(--text)}
 .colgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .colpick{background:none;border:0;padding:0;cursor:pointer;color:#fff;text-align:left}
 .colpick .sw{display:block;aspect-ratio:1.15;border-radius:14px;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:transform .15s var(--ease)}
-.colpick[aria-pressed="true"] .sw{box-shadow:0 0 0 2px #050505,0 0 0 4px var(--red),0 0 18px rgba(232,19,43,.6)}
+.colpick[aria-pressed="true"] .sw{box-shadow:0 0 0 2px #050505,0 0 0 4px var(--red),0 0 18px rgba(var(--red-rgb),.6)}
 .colpick .nm{display:block;font-size:12px;font-weight:700;margin-top:6px;color:#DADADA}
 .colpick:active .sw{transform:scale(.96)}
 .mypal{background:#F4F4F4;color:#111;border-radius:18px;padding:14px;margin:18px 0 4px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px}
@@ -612,10 +613,10 @@ a.row{text-decoration:none;color:var(--text)}
 .imgpick img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s var(--ease)}
 .imgpick::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent 55%)}
 .imgpick .lbl{position:absolute;left:8px;bottom:7px;right:8px;z-index:2;color:#fff;font-weight:800;font-size:12.5px;text-align:left;text-shadow:0 1px 4px rgba(0,0,0,.6)}
-.imgpick[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 18px -2px rgba(232,19,43,.7)}
+.imgpick[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 18px -2px rgba(var(--red-rgb),.7)}
 .imgpick[aria-pressed="true"] img{transform:scale(1.06)}
 .imgpick .check,.fontpick .check{position:absolute;top:6px;right:6px;z-index:2;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;animation:pop .25s var(--ease)}
-.imgpick .rk,.fontpick .rk{position:absolute;top:6px;left:6px;z-index:2;background:rgba(0,0,0,.7);color:#fff;font-size:10px;font-weight:800;border-radius:999px;padding:3px 7px;border:1px solid rgba(232,19,43,.8)}
+.imgpick .rk,.fontpick .rk{position:absolute;top:6px;left:6px;z-index:2;background:rgba(0,0,0,.7);color:#fff;font-size:10px;font-weight:800;border-radius:999px;padding:3px 7px;border:1px solid rgba(var(--red-rgb),.8)}
 .typo-prev{border-radius:18px;padding:18px;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;box-shadow:inset 0 0 0 1px rgba(128,128,128,.3)}
 .typo-prev .spec-d{font-size:36px;line-height:1;word-break:break-word}
 .typo-prev .tp-s{font-size:17px;opacity:.9}
@@ -625,7 +626,7 @@ a.row{text-decoration:none;color:var(--text)}
 .fontpick{position:relative;background:#F7F7F7;color:#111;border:2px solid transparent;border-radius:14px;padding:16px 6px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
 .fontpick .aa{font-size:34px;line-height:1}
 .fontpick .fn{font-size:11.5px;color:#555;font-weight:700;text-align:center;line-height:1.2}
-.fontpick[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 16px -2px rgba(232,19,43,.7)}
+.fontpick[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 16px -2px rgba(var(--red-rgb),.7)}
 .fontpick .rk{top:auto;bottom:auto;left:50%;transform:translateX(-50%);top:-9px;background:var(--red);border:0;white-space:nowrap}
 .opt{font-family:var(--ff-b);font-weight:500;color:var(--muted);font-size:12.5px;text-transform:none;letter-spacing:0}
 .vis-img{width:100%;height:100%;object-fit:cover;display:block}
@@ -638,7 +639,7 @@ a.row{text-decoration:none;color:var(--text)}
 .optcard .logo-prev{border-radius:10px;padding:0 6px;overflow:hidden}
 .optcard b{font-size:12.5px}
 .optcard small{font-size:11px;color:var(--muted);line-height:1.25}
-.optcard[aria-pressed="true"]{border-color:var(--red);background:#140709;box-shadow:0 0 16px -2px rgba(232,19,43,.55)}
+.optcard[aria-pressed="true"]{border-color:var(--red);background:#140709;box-shadow:0 0 16px -2px rgba(var(--red-rgb),.55)}
 .posi-h{margin-top:34px;padding-top:20px;border-top:1px solid #222}
 .posi-h .sec-t{margin-top:0}
 .field-l{font-size:13px;font-weight:700;margin:14px 0 8px}
@@ -649,6 +650,89 @@ a.row{text-decoration:none;color:var(--text)}
 .bp-imgs img{width:100%;height:100%;object-fit:cover;display:block}
 .bp-imgs figcaption{position:absolute;left:8px;bottom:6px;color:#fff;font-size:12px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.8)}
 .bp-item .art img{width:100%;height:100%;object-fit:cover}
+
+/* ===== Lot 3 : Brand Board + thème ===== */
+.btn-red,.lvl-tag,.badge,.tabs2 button.on,.imgpick .check,.fontpick .check,.chip.no[aria-pressed="true"],.cm-ic,.talk.unread,.link-btn.red,.row em.unread-badge,.stats .hot,.msg.mine,.fontpick .rk{color:var(--on-red)}
+.stats .hot small{color:inherit}
+.themed .tab.on,.themed .lvl-tag{transition:color .4s,background .4s}
+.bb-top-kick{font-family:var(--ff-label);font-weight:700;letter-spacing:.3em;font-size:12px;color:var(--red);margin:0 0 6px}
+.bp-doc{background:var(--b-fond);border:0;border-radius:22px}
+.bb-hero{padding:30px 22px 44px;clip-path:polygon(0 0,100% 0,100% 90%,62% 97%,0 92%)}
+.bb-kick{font-family:var(--ff-label);font-weight:700;letter-spacing:.3em;font-size:11.5px;margin:0 0 12px;position:relative;z-index:2}
+.bb-hero .slog{font-size:16px;opacity:.92}
+.bb-script{font-family:var(--ff-script);font-size:27px;font-weight:700;margin:14px 0 0;transform:rotate(-3deg);position:relative;z-index:2}
+.bb-swoosh{position:absolute;right:-30px;top:40%;width:55%;height:10px;border-radius:10px 2px 12px 2px;transform:rotate(-8deg);opacity:.9;z-index:1}
+.bb-card{background:var(--b-card);border-radius:16px;margin:10px;padding:18px;border-top:0;box-shadow:inset 0 0 0 1px var(--b-line)}
+.bb-card .bp-h h2{font-family:var(--b-fb);font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.bb-card .bp-h h2 em{font-style:normal;color:var(--b-p);margin-right:8px;filter:saturate(1.2)}
+.bb-pills{display:flex;flex-wrap:wrap;gap:6px}
+.bb-pills span{background:var(--b-fond);box-shadow:inset 0 0 0 1px var(--b-line);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600}
+.bb-portrait{position:relative;margin:10px;border-radius:16px;overflow:hidden;padding:0;aspect-ratio:4/5;border:0}
+.bb-portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.bb-portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 55%)}
+.bb-words{position:absolute;left:22px;bottom:24px;z-index:2;display:flex;flex-direction:column;color:#fff;font-family:var(--ff-script);font-weight:700;font-size:34px;line-height:1.05;transform:rotate(-6deg)}
+.bb-words i{display:block;height:5px;width:70%;border-radius:4px;margin-top:6px}
+.bb-item{display:flex;gap:12px;margin-bottom:14px}
+.bb-item b{display:block;font-size:14px}
+.bb-item p{margin:2px 0 0;font-size:13.5px;line-height:1.5;opacity:.8}
+.bb-ic{width:34px;height:34px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1.5px currentColor}
+.bb-ic svg{width:17px;height:17px}
+.bb-phrase{border-radius:14px;padding:14px;margin-top:6px}
+.bb-phrase b{display:flex;align-items:center;gap:8px;font-size:14px}
+.bb-phrase .bb-ic{width:24px;height:24px;box-shadow:none}
+.bb-phrase p{margin:8px 0 0;font-style:italic;font-size:14px;line-height:1.55}
+.bb-mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bb-mosaic img,.bb-quote{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;display:block}
+.bb-quote{display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font-size:15px;line-height:1.05;overflow:hidden;word-break:break-word}
+.bb-cap{font-size:13.5px;margin:12px 0 0;opacity:.8}
+.bb-dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:12px}
+.bb-dot{background:none;border:0;color:inherit;text-align:left;cursor:pointer;padding:0}
+.bb-dot i{display:block;width:62px;height:62px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(128,128,128,.35);margin-bottom:8px}
+.bb-dot b{display:block;font-size:13px}
+.bb-dot small{display:block;font-size:11.5px;opacity:.65;font-variant-numeric:tabular-nums}
+.bb-dot em{display:block;font-style:normal;font-size:11px;opacity:.7;margin-top:6px;line-height:1.4}
+.bb-roles{display:flex;gap:4px;margin-top:16px;border-radius:10px;overflow:hidden}
+.bb-roles button{flex:1;border:0;padding:10px 4px;font-size:10px;font-variant-numeric:tabular-nums;cursor:pointer;line-height:1.35}
+.bb-roles b{display:block;font-size:10.5px}
+.bb-type{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bb-type>div{border-left:1px solid var(--b-line);padding-left:12px}
+.bb-type>div:first-child{border-left:0;padding-left:0}
+.bb-aa{display:block;font-size:64px;line-height:1}
+.bb-type b{display:block;font-size:14px;margin-top:6px}
+.bb-type small{opacity:.65;font-size:12px}
+.bb-sub{margin:14px 0 0;font-size:15px}
+.bb-adj{text-align:center;margin:16px 0 0;font-size:13.5px}
+.bb-adj span{opacity:.4;margin:0 6px}
+.bb-glance{margin:10px;border-radius:16px;padding:22px;position:relative;border-top:0}
+.bb-glance h2{font-size:22px;margin:4px 0 8px;line-height:1.05}
+.bb-glance p{margin:0;font-size:14.5px;line-height:1.55;opacity:.92}
+.bb-glance .bb-script{font-size:25px;margin-top:14px}
+.bb-line{display:block;width:34%;height:4px;border-radius:4px;margin-top:14px}
+.bb-spark .bb-ic{box-shadow:none;width:26px;height:26px}
+.bb-sep{display:flex;align-items:center;gap:10px;margin:26px 16px 4px;font-family:var(--b-fb);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.bb-sep::before,.bb-sep::after{content:"";flex:1;height:1px;background:currentColor;opacity:.3}
+.bb-end{margin:18px 0 0}
+
+/* ===== Export PDF v2 ===== */
+.img-bg{background-size:cover;background-position:center;background-repeat:no-repeat;display:block;width:100%;height:100%}
+.stage .bb-mosaic .img-bg{aspect-ratio:1;border-radius:8px;height:auto}
+.stage .bb-portrait .img-bg{position:absolute;inset:0}
+.stage.print{width:1100px}
+.stage.print .bp-doc{display:grid;grid-template-columns:1fr 1fr 1fr;grid-auto-flow:row dense;gap:14px;padding:18px;border-radius:0}
+.stage.print .bb-hero{grid-column:1/-1;padding:34px 34px 50px}
+.stage.print .bb-hero h1{font-size:64px}
+.stage.print .bb-glance{grid-column:1/-1;margin:0}
+.stage.print .bb-card,.stage.print .bb-portrait{margin:0}
+.stage.print .bb-portrait{aspect-ratio:auto;grid-row:span 2;min-height:420px}
+.stage.print .bb-dots{grid-template-columns:repeat(3,1fr)}
+.stage.print #bb-cont{grid-column:span 2}
+.stage.print .bb-swoosh{top:auto;bottom:42px;right:36px;width:24%;transform:rotate(-4deg)}
+.print-p2{width:1100px;padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;background:var(--b-fond);color:var(--b-texte);font-family:var(--b-fb);align-items:start}
+.print-p2 h2{grid-column:1/-1;margin:0 0 4px;font-size:34px}
+.p2-item{background:var(--b-card);border-radius:14px;padding:12px}
+.p2-item.tall .mock-story{max-width:200px;margin:0 auto}
+.p2-item>p{font-size:12px;opacity:.7;margin:8px 0 0;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.p2-item .mock-card+.mock-card{margin-top:8px}
 
 /* Toast */
 .toast{position:fixed;left:50%;bottom:calc(120px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:11px 16px;border-radius:999px;font-weight:700;font-size:13.5px;opacity:0;pointer-events:none;transition:all .25s var(--ease);z-index:50;max-width:90vw;text-align:center}
@@ -1115,6 +1199,7 @@ Screens.profil = {
         <button class="row" data-act="logout"><span class="thumb ic">${svg('<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/>')}</span><span><b>Se déconnecter</b></span><em></em></button>
       </div>
       <p class="sign">by Lyliie RBL Digital</p>
+      <p class="fine" style="text-align:center">Version 3.1</p>
     </section>`;
   },
 };
@@ -1374,7 +1459,7 @@ Screens.brand = {
     const edit = step => `<button class="edit" data-act="nav" data-to="p/${p.id}/${step}?retour=brand">Modifier</button>`;
     const head = (title, step, sec) => `<header class="bp-h"><h2>${title}</h2><span class="bp-h-acts">${sec ? talkBtn(p, sec, title) : ''}${step ? edit(step) : ''}</span></header>`;
     const todo = (txt, step) => `<div class="todo"><span>${txt}</span>${edit(step)}</div>`;
-    const vars = `--b-p:${c.principale};--b-s:${c.secondaire};--b-a:${c.accent};--b-fond:${c.fond};--b-texte:${c.texte};--b-dark:${c.dark};--b-light:${c.light};--b-fd:${t.fd};--b-fb:${t.fb};--b-r:${t.radius}px`;
+    const vars = `--b-p:${c.principale};--b-s:${c.secondaire};--b-a:${c.accent};--b-fond:${c.fond};--b-texte:${c.texte};--b-dark:${c.dark};--b-light:${c.light};--b-fd:${t.fd};--b-fb:${t.fb};--b-r:${t.radius}px;--b-card:${lum(c.fond) > .5 ? adjust(c.fond, -4) : adjust(c.fond, 6)};--b-line:${rgba(c.texte, .1)}`;
     const sl = slug(id.name), email = `bonjour@${sl}.fr`;
     const img = p.visual.images[0] || 'photo';
     const kraft = p.visual.textures.includes('papier');
@@ -1383,11 +1468,42 @@ Screens.brand = {
     const adminRow = !isOwner && App.adminData ? App.adminData.projects.find(r => r.id === p.id) : null;
     const clientName = adminRow && adminRow.profiles ? (adminRow.profiles.full_name || adminRow.profiles.email) : 'ta cliente';
     const nGen = Comments.count(p.id, 'general'), uGen = Comments.unread(p.id, 'general');
-    const toc = [['bp-adn','ADN'],['bp-logo','Logo'],['bp-palette','Palette'],['bp-typo','Typos'],['bp-mood','Mood'],['bp-visuels','Visuels'],['bp-supports','Supports']];
+    const toc = [['bb-id','Identité'],['bb-pos','Positionnement'],['bb-univ','Univers'],['bb-col','Couleurs'],['bb-typo','Typo'],['bb-cont','Contenu'],['bp-logo','Logo'],['bp-supports','Supports']];
+    const vis = (col, bg) => contrast(col, bg) >= 3 ? col : (lum(bg) < .5 ? adjust(col, 30) : adjust(col, -30));
+    const ico = k => `<span class="bb-ic" style="color:${c.principale}">${BB_ICONS[k] || BB_ICONS.spark}</span>`;
+    const univObjs = [...(p.mood.univers || []).map(x => UNIVERS.find(u => u.id === x)), ...(p.mood.ambiances || []).map(x => AMBIANCES.find(u => u.id === x))].filter(Boolean);
+    const univLabels = univObjs.map(x => x.label);
+    const imgsChosen = p.visual.images.map(i => (VISUALS.images.items.find(x => x.id === i) || {}).img).filter(Boolean);
+    const texChosen = p.visual.textures.map(i => (VISUALS.textures.items.find(x => x.id === i) || {}).img).filter(Boolean);
+    const mosaic = [...univObjs.map(x => x.img), ...imgsChosen, ...texChosen];
+    const portrait = (imgsChosen.find(x => x.startsWith('photo-portrait')) || (univObjs[0] || {}).img || imgsChosen[0] || null);
+    const univText = univLabels.length ? `Un univers ${listFr(univLabels.map(x => x.toLowerCase()))}, à ton image.` : '';
+    const who = [...(id.targets || []), id.audience].filter(Boolean).join(', ');
+    const hasPos = !!(who || id.problem || id.transformation);
+    const phrase = (who || id.transformation) ? `J’aide ${id.audience || (id.targets || []).join(' et ').toLowerCase() || 'mes clientes'}${id.transformation ? ' : ' + id.transformation.replace(/\.$/, '') : ' à construire une marque qui leur ressemble'}.` : '';
+    const picked = p.colors.picked || [];
+    const colorsShown = picked.length ? picked.slice(0, 5) : ROLES.slice(0, 4).map(([k]) => c[k]);
+    const sub = Engine.sub(p);
+    const ADJ = {urban:'Urbaine', chic:'Élégante', playful:'Ludique', bold:'Impactante', organique:'Douce', tech:'Moderne'};
+    const typoAdj = [...new Set([...p.mood.moods.map(m => ADJ[m]).filter(Boolean), 'Lisible'])].slice(0, 3);
+    const CONT = {
+      'photo-portrait':['image','Photos authentiques','toi, ton quotidien, tes coulisses'], 'photo-workspace':['image','Coulisses de travail','ton bureau, tes outils, ton process'],
+      'photo-produit':['image','Photos produit','mises en scène soignées'], 'photo-coulisses':['image','Fait main en vidéo et photo','les mains, la matière, le geste'],
+      'photo-urbain':['image','Photos en mouvement','la ville, l’énergie, le dehors'], 'photo-gros-plan':['image','Gros plans','les détails qui font la différence'],
+      'illu-bd':['pen','Visuels façon BD','punchy, avec des bulles et du rythme'], 'illu-lineart':['pen','Visuels épurés','traits fins, beaucoup d’espace'],
+      'illu-aquarelle':['pen','Visuels aquarelle','doux, artistiques, délicats'], 'illu-flat':['pen','Visuels vectoriels','colorés, modernes, lisibles'],
+      'illu-collage':['pen','Collages créatifs','matières et superpositions'], 'illu-3d':['pen','Visuels 3D','ludiques et en volume'],
+    };
+    const contenu = [...p.visual.images.map(i => CONT[i]).filter(Boolean).slice(0, 2),
+      ['play','Vidéos courtes','conseils, partages, témoignages'],
+      ['chat','Ton de voix', id.personality.length ? listFr(id.personality.map(x => x.toLowerCase())) : 'direct, bienveillant, inspirant']];
+    const glance = `Une marque ${id.personality.length ? listFr(id.personality.map(x => x.toLowerCase())) : 'qui te ressemble'}${who ? `, pour ${who.toLowerCase()}` : ''}${univLabels.length ? `, dans un univers ${listFr(univLabels.map(x => x.toLowerCase()))}` : ''}.`;
+
 
     return `<section class="screen">
-      <h1>Ta Brand Page</h1>
-      <p class="lead">Tout ton univers au même endroit. Ajuste en direct avec l’édition rapide.</p>
+      <p class="bb-top-kick">RÉSULTAT FINAL</p>
+      <h1>Ton <em>Brand Board</em></h1>
+      <p class="lead">Tout ce que tu as partagé, rassemblé en un seul endroit : ton identité, ton positionnement, ton univers de marque.</p>
       ${isOwner && p.generatedAt ? coachCard('celebration', p, {big: true}) : ''}
       ${!isOwner ? `<p class="note admin-note">Projet de <b>${esc(clientName)}</b>. Tes modifications sont enregistrées directement dans son projet.</p>` : ''}
       <div class="bp-actions"><button class="btn btn-ghost grow" data-act="sheet">Édition rapide</button>${isOwner ? `<button class="btn btn-red grow" data-act="nav" data-to="p/${p.id}/envoyer">Envoyer à Digital Rebelle</button>` : ''}</div>
@@ -1401,28 +1517,72 @@ Screens.brand = {
       <nav class="bp-toc" data-keep="toc" aria-label="Sections">${toc.map(([i, l]) => `<button data-act="jump" data-id="${i}">${l}</button>`).join('')}</nav>
 
       <article class="bp-doc" style="${vars}">
-        <div class="bp-hero ${texCls}">
-          ${deco(shape, c.principale, c.accent)}
+        <div class="bp-hero bb-hero ${texCls}">
+          <p class="bb-kick">CHARACTER <span style="color:${vis(c.principale, c.dark)}">UNLOCKED</span></p>
           <p class="act">${A}</p>
           <h1 style="${fw}${up}">${N}</h1>
-          <p class="slog">${S}</p>
-          <div class="bp-bars">${ROLES.map(([k]) => `<i style="background:${c[k]}"></i>`).join('')}</div>
+          <p class="slog" style="font-family:${t.fs}">${S}</p>
+          <p class="bb-script" style="color:${vis(c.principale, c.dark)}">C’est ton moment.</p>
+          <span class="bb-swoosh" style="background:${c.principale}"></span>
         </div>
 
-        <section class="bp-sec" id="bp-adn">
-          ${head('Ton ADN', 'identite', 'adn')}
-          <p class="adn">${esc(adn(p))}</p>
-          <div class="tags">${id.personality.map(tr => `<span class="tag" style="background:${c.principale};color:${onColor(c.principale)}">${esc(tr)}</span>`).join('')}</div>
-          ${!id.personality.length ? `<div style="margin-top:12px">${todo('Mots de personnalité à choisir', 'identite')}</div>` : ''}
-          ${(id.powers || []).length ? `<p class="bp-lab">Tes super-pouvoirs</p><div class="tags">${id.powers.map(x => `<span class="tag o">${esc(x)}</span>`).join('')}</div>` : ''}
-          ${(id.values || []).length ? `<p class="bp-lab">Tes valeurs</p><div class="tags">${id.values.map(x => `<span class="tag o">${esc(x)}</span>`).join('')}</div>` : ''}
+        <section class="bp-sec bb-card" id="bb-id">
+          ${head('<em>01</em> Ton identité', 'identite', 'adn')}
+          ${[['Tes super-pouvoirs', id.powers], ['Tes 3 mots', id.personality], ['Tes valeurs', id.values], ['Ton univers', univLabels]].filter(([, a]) => (a || []).length).map(([l, a]) => `<p class="bp-lab">${l}</p><div class="bb-pills">${a.map(x => `<span>${esc(x)}</span>`).join('')}</div>`).join('') || todo('Complète ton identité', 'identite')}
         </section>
-        ${((id.targets || []).length || id.audience || id.problem || id.transformation) ? `<section class="bp-sec" id="bp-posi">
-          ${head('Ton positionnement', 'identite', 'adn')}
-          ${((id.targets || []).length || id.audience) ? `<p class="bp-lab">Ton audience cible</p><p class="bp-txt">${esc([...(id.targets || []), id.audience].filter(Boolean).join(', '))}</p>` : ''}
-          ${id.problem ? `<p class="bp-lab">Le problème que tu résous</p><p class="bp-txt">${esc(id.problem)}</p>` : ''}
-          ${id.transformation ? `<p class="bp-lab">Ta transformation promise</p><p class="bp-txt">${esc(id.transformation)}</p>` : ''}
+
+        ${portrait ? `<section class="bp-sec bb-portrait">
+          <img src="${portrait}" alt="" loading="lazy">
+          <div class="bb-words">${(id.personality.length ? id.personality : univLabels).slice(0, 3).map(w => `<span>${esc(w)}</span>`).join('')}<i style="background:${c.principale}"></i></div>
         </section>` : ''}
+
+        <section class="bp-sec bb-card" id="bb-pos">
+          ${head('<em>02</em> Ton positionnement', 'identite', 'posi')}
+          ${hasPos ? `
+            ${who ? `<div class="bb-item">${ico('bolt')}<div><b>Ton audience cible</b><p>${esc(who)}</p></div></div>` : ''}
+            ${id.problem ? `<div class="bb-item">${ico('bolt')}<div><b>Le problème principal</b><p>${esc(id.problem)}</p></div></div>` : ''}
+            ${id.transformation ? `<div class="bb-item">${ico('heart')}<div><b>Ta transformation promise</b><p>${esc(id.transformation)}</p></div></div>` : ''}
+            ${phrase ? `<div class="bb-phrase" style="background:${rgba(c.principale, .12)}"><b>${ico('spark')}Ta phrase de positionnement</b><p>« ${esc(phrase)} »</p></div>` : ''}`
+            : todo('Ajoute ta cible, ton problème et ta promesse', 'identite')}
+        </section>
+
+        <section class="bp-sec bb-card" id="bb-univ">
+          ${head('<em>03</em> Ton univers visuel', 'mood', 'mood')}
+          ${mosaic.length ? `<div class="bb-mosaic">${mosaic.slice(0, 2).map(x => `<img src="${x}" alt="" loading="lazy">`).join('')}<span class="bb-quote" style="background:${c.dark};color:${c.light};font-family:${t.fd};font-weight:${t.pair.w};${up}">${S}</span>${mosaic.slice(2, 5).map(x => `<img src="${x}" alt="" loading="lazy">`).join('')}</div>
+            <p class="bb-cap">${esc(univText)}</p>` : todo('Choisis ton univers', 'mood')}
+          ${p.mood.avoid.length ? `<p class="avoid"><b>À éviter</b> ${p.mood.avoid.map(esc).join(', ').toLowerCase()}.</p>` : ''}
+        </section>
+
+        <section class="bp-sec bb-card bb-colors" id="bb-col">
+          ${head('<em>04</em> Tes couleurs phares', 'couleurs', 'palette')}
+          ${p.colors.palette ? `<div class="bb-dots">${colorsShown.map(h => { const inf = colorInfo(h); return `<button class="bb-dot" data-act="copy" data-text="${h}" aria-label="Copier ${esc(inf.name)} ${h}"><i style="background:${h}"></i><b>${esc(inf.name)}</b><small>${h}</small><em>${inf.mean.map(esc).join('<br>')}</em></button>`; }).join('')}</div>
+            <div class="bb-roles">${ROLES.map(([k, l]) => `<button data-act="copy" data-text="${c[k]}" style="background:${c[k]};color:${onColor(c[k])}"><b>${l}</b>${c[k]}</button>`).join('')}</div>` : todo('Choisis tes couleurs', 'couleurs')}
+        </section>
+
+        <section class="bp-sec bb-card" id="bb-typo">
+          ${head('<em>05</em> Ta typographie', 'typos', 'typo')}
+          ${pair ? `<div class="bb-type">
+              <div><span class="bb-aa" style="font-family:${t.fd};${fw}">Aa</span><b>${pair.display}</b><small>titres et accents${t.upper ? ', en majuscules' : ''}</small></div>
+              <div><span class="bb-aa" style="font-family:${t.fb};font-weight:400">Aa</span><b>${pair.body}</b><small>textes et body</small></div>
+            </div>
+            ${sub && sub.name !== pair.body && sub.name !== pair.display ? `<p class="bb-sub" style="font-family:${t.fs};font-weight:${t.sw}">Sous-titres en ${sub.name}</p>` : ''}
+            <p class="bb-adj">${typoAdj.join(' <span>/</span> ')}</p>` : todo('Choisis tes typographies', 'typos')}
+        </section>
+
+        <section class="bp-sec bb-card" id="bb-cont">
+          ${head('<em>06</em> Ton style de contenu', 'visuels', 'contenu')}
+          ${contenu.map(([ic, b, s]) => `<div class="bb-item">${ico(ic)}<div><b>${b}</b><p>${s}</p></div></div>`).join('')}
+        </section>
+
+        <section class="bp-sec bb-glance" style="background:${c.dark};color:${c.light}">
+          <span class="bb-spark" style="color:${vis(c.principale, c.dark)}">${ico('spark')}</span>
+          <h2 style="font-family:${t.fd};${fw}${up}">Ta marque en un coup d’œil</h2>
+          <p>${esc(glance)}</p>
+          <i class="bb-line" style="background:${c.principale}"></i>
+          <p class="bb-script" style="color:${vis(c.principale, c.dark)}">Tu as tout. Maintenant, à toi de jouer.</p>
+        </section>
+
+        <div class="bb-sep"><span>Tes déclinaisons</span></div>
 
         <section class="bp-sec" id="bp-logo">
           ${head('Signe de marque', 'identite', 'logo')}
@@ -1436,34 +1596,6 @@ Screens.brand = {
             </div>
           </div>
           <p class="mock-label">Proposition générée à partir de ta typo et de tes formes. Un vrai logo pourra être dessiné à partir de cette base.</p>
-        </section>
-
-        <section class="bp-sec" id="bp-palette">
-          ${head('Palette', 'couleurs', 'palette')}
-          ${p.colors.palette ? `<div class="bp-pal">${ROLES.map(([k, l]) => { const h = c[k]; return `<button class="bp-sw" data-act="copy" data-text="${h}" style="background:${h};color:${onColor(h)}" aria-label="Copier ${l} ${h}"><b>${l}</b><span>${h}</span><small>RGB ${hexToRgb(h).join(', ')}</small></button>`; }).join('')}</div>` : todo('Palette pas encore choisie', 'couleurs')}
-        </section>
-
-        <section class="bp-sec" id="bp-typo">
-          ${head('Typographies', 'typos', 'typo')}
-          ${pair ? `
-            <div class="bp-type"><div class="bp-aa" style="font-family:${t.fd};${fw}background:${c.principale};color:${onColor(c.principale)}">Aa</div><div><b style="font-family:${t.fd};${fw}">${pair.display}</b><small>Titres et accroches${t.upper ? ', en majuscules' : ''}</small></div></div>
-            <div class="bp-type"><div class="bp-aa" style="font-family:${t.fb};font-weight:500;font-size:48px;box-shadow:inset 0 0 0 1.5px currentColor">Aa</div><div><b style="font-family:${t.fb}">${pair.body}</b><small>Textes, légendes, boutons</small></div></div>
-            <div class="hier"><p class="h1" style="${fw}${up}">${N}</p><p class="h2" style="font-family:${t.fs || t.fb};font-weight:${t.sw || 600}">${S}</p><p>Voici à quoi ressemble un paragraphe dans ton identité : clair, cohérent, reconnaissable.</p></div>` : todo('Typographie pas encore choisie', 'typos')}
-        </section>
-
-        <section class="bp-sec" id="bp-mood">
-          ${head('Mood', 'mood', 'mood')}
-          ${[...(p.mood.univers || []).map(x => UNIVERS.find(u => u.id === x)), ...(p.mood.ambiances || []).map(x => AMBIANCES.find(u => u.id === x))].filter(Boolean).length
-            ? `<div class="bp-imgs">${[...(p.mood.univers || []).map(x => UNIVERS.find(u => u.id === x)), ...(p.mood.ambiances || []).map(x => AMBIANCES.find(u => u.id === x))].filter(Boolean).map(x => `<figure><img src="${x.img}" alt="" loading="lazy"><figcaption>${x.label}</figcaption></figure>`).join('')}</div>`
-            : moods.length ? `<div class="bp-moods ${moods.length === 1 ? 'one' : ''}">${moods.map(m => `<div><div class="art">${moodBoard(m, c)}</div><p class="mock-label">${m.label} : ${m.desc.toLowerCase()}</p></div>`).join('')}</div>` : todo('Mood pas encore choisi', 'mood')}
-          ${p.mood.avoid.length ? `<p class="avoid"><b>À éviter</b> ${p.mood.avoid.map(esc).join(', ').toLowerCase()}.</p>` : ''}
-          ${comp ? `<div class="comp" style="margin-top:18px">${compArt(comp.id, c)}<div><b>Composition : ${comp.name.toLowerCase()}</b><p>${comp.desc}</p></div></div>` : ''}
-        </section>
-
-        <section class="bp-sec" id="bp-visuels">
-          ${head('Style visuel', 'visuels', 'visuels')}
-          ${vItems('images').length ? `<div class="bp-items">${vItems('images').map(x => `<div class="bp-item"><div class="art">${visualArt('images', x.id, c)}</div><b>${x.label}</b><small>${x.desc}</small></div>`).join('')}</div>` : todo('Style d’images à choisir', 'visuels')}
-          ${(vItems('shapes').length || vItems('textures').length) ? `<div class="bp-items" style="margin-top:16px">${[...vItems('shapes').map(x => ['shapes', x]), ...vItems('textures').map(x => ['textures', x])].map(([g, x]) => `<div class="bp-item"><div class="art">${visualArt(g, x.id, c)}</div><b>${x.label}</b><small>${x.desc}</small></div>`).join('')}</div>` : ''}
         </section>
 
         <section class="bp-sec" id="bp-supports">
@@ -1522,6 +1654,7 @@ Screens.brand = {
           </div>` : ''}
         </section>
       </article>
+      <div class="bb-end"><button class="btn btn-red btn-block btn-cta" data-act="nav" data-to="p/${p.id}/export">Télécharger mon Brand Board</button><button class="mini-btn" data-act="nav" data-to="" style="display:block;margin:12px auto 0">Retour à l’accueil</button></div>
       ${isOwner && p.generatedAt ? (p.validatedAt
         ? `<div class="valid-ok">✓ Brand Page validée le ${new Date(p.validatedAt).toLocaleDateString('fr-FR', {day: 'numeric', month: 'long'})}</div>`
         : `<div class="validate-card"><b>Tout te plaît ?</b><p>Valide ta Brand Page pour que Lyliie puisse finaliser ton identité.</p><button class="btn btn-dark btn-block" data-act="validate">${App.confirmValidate ? 'Oui, je confirme ma validation' : 'Je valide ma Brand Page'}</button></div>`) : ''}
@@ -1591,18 +1724,6 @@ const Downloads = {
   },
 };
 
-async function stageBrand(p){
-  const host = document.createElement('div');
-  host.className = 'stage'; host.setAttribute('aria-hidden', 'true');
-  const keep = [App.sheet, App.support]; App.sheet = false; App.support = 'tout';
-  host.innerHTML = Screens.brand.html(p, new URLSearchParams(''));
-  [App.sheet, App.support] = keep;
-  host.querySelectorAll('.edit, .talk, .sup-filter, .bp-toc, .bp-actions').forEach(el => el.remove());
-  document.body.appendChild(host);
-  try { await document.fonts.ready; } catch(e){}
-  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-  return host;
-}
 const toBlob = cv => new Promise((res, rej) => cv.toBlob(b => b ? res(b) : rej(new Error('canvas')), 'image/png'));
 
 Object.assign(Exporter, {
@@ -1652,7 +1773,7 @@ Object.assign(Exporter, {
         ['logo/logo-fond-clair.png', lg[0], 4], ['logo/logo-fond-sombre.png', lg[1], 4],
         ['logo/monogramme.png', lg[2] && lg[2].querySelector('.mono'), 8], ['logo/monogramme-inverse.png', lg[3] && lg[3].querySelector('.mono'), 8],
         ['logo/icone-app.png', lg[4] && lg[4].querySelector('.app-ic'), 10],
-        ['palette.png', q('.bp-pal'), 3],
+        ['palette.png', q('.bb-colors') || q('.bp-pal'), 3],
         ['reseaux/banniere.png', q('.m-banner'), 4], ['reseaux/post.png', q('.mock-post'), 5], ['reseaux/story.png', q('.mock-story'), 6],
         ['print/carte-recto.png', cards[0], 4], ['print/carte-verso.png', cards[1], 4], ['print/affiche.png', q('.poster'), 4], ['print/packaging.png', q('.m-pack'), 4],
         ['web/page-accueil.png', q('.m-web'), 3], ['web/signature-mail.png', q('.m-sig'), 3],
@@ -2455,6 +2576,103 @@ Exporter.model = function(p){
     mis_a_jour: new Date(p.updatedAt).toISOString(),
   };
 };
+const BB_ICONS = {
+  bolt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>',
+  heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+  spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>',
+  image:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 17l-5-5-9 8"/></svg>',
+  pen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg>',
+  chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>',
+};
+Object.assign(SECTIONS, {posi: 'Positionnement', contenu: 'Style de contenu'});
+
+/* ---------- Thème progressif : l’app prend l’identité de la cliente ---------- */
+function applyTheme(view, p){
+  const root = document.documentElement.style;
+  const reset = () => { ['--red','--red-rgb','--on-red','--ff-d','--red-soft'].forEach(k => root.removeProperty(k)); document.body.classList.remove('themed'); };
+  if (!Auth.user || !view || ['admin','connexion','confidentialite'].includes(view.id)) return reset();
+  let proj = p;
+  if (!proj && ['home','projets','profil','faq'].includes(view.id)) proj = Store.sorted().find(x => x.generatedAt) || null;
+  if (!proj || !proj.colors || !proj.colors.palette) return reset();
+  const pal = proj.colors.palette, bg = '#050505';
+  let acc = [pal.principale, pal.accent, pal.secondaire].find(h => contrast(h, bg) >= 3.2) || pal.principale;
+  let guard = 0; while (contrast(acc, bg) < 3.2 && guard++ < 8) acc = adjust(acc, 8);
+  const [r, g, b] = hexToRgb(acc);
+  root.setProperty('--red', acc); root.setProperty('--red-rgb', `${r},${g},${b}`); root.setProperty('--on-red', onColor(acc));
+  root.setProperty('--red-soft', `rgba(${r},${g},${b},.16)`);
+  const T = proj.typography;
+  if (T && T.titre){ const f = fontById(FONT_T, T.titre); root.setProperty('--ff-d', Engine.stack(f.name, f.serif)); } else root.removeProperty('--ff-d');
+  document.body.classList.add('themed');
+}
+
+/* ---------- Export PDF v2 : mise en page Brand Board (grille façon maquette) ---------- */
+async function stageBrand(p, opts = {}){
+  const host = document.createElement('div');
+  host.className = 'stage' + (opts.print ? ' print' : ''); host.setAttribute('aria-hidden', 'true');
+  const keep = [App.sheet, App.support, App.thread]; App.sheet = false; App.support = 'tout'; App.thread = null;
+  host.innerHTML = Screens.brand.html(p, new URLSearchParams(''));
+  [App.sheet, App.support, App.thread] = keep;
+  host.querySelectorAll('.edit, .talk, .sup-filter, .bp-toc, .bp-actions').forEach(el => el.remove());
+  // html2canvas ne gère pas object-fit : on remplace les images par des fonds « cover »
+  const srcs = [];
+  host.querySelectorAll('.bp-doc img').forEach(im => {
+    const src = im.getAttribute('src'); srcs.push(src);
+    const d = document.createElement('div'); d.className = (im.className || '') + ' img-bg';
+    d.style.backgroundImage = `url("${src}")`; im.replaceWith(d);
+  });
+  document.body.appendChild(host);
+  await Promise.all([...new Set(srcs)].map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; })));
+  try { await document.fonts.ready; } catch(e){}
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  return host;
+}
+Exporter.pdf = async function(p, set){
+  const jsPDF = window.jspdf && window.jspdf.jsPDF;
+  if (!jsPDF || !window.html2canvas) throw {code:'lib'};
+  set('Mise en page…');
+  const host = await stageBrand(p, {print: true});
+  try {
+    const docEl = host.querySelector('.bp-doc'), c = Engine.tokens(p).c;
+    // Page 2 : les déclinaisons, en grille
+    const p2 = document.createElement('div');
+    p2.className = 'print-p2'; p2.style.cssText = docEl.getAttribute('style');
+    const t = Engine.tokens(p);
+    p2.innerHTML = `<h2 style="font-family:${t.fd};font-weight:${t.pair.w}">Tes déclinaisons</h2>`;
+    const items = [['Logo', ['.logo-grid']], ['Bannière', ['.m-banner']], ['Post', ['.mock-post']], ['Story', ['.mock-story']], ['Carte de visite', ['.mock-card']], ['Affiche', ['.poster']], ['Packaging', ['.m-pack']], ['Page d’accueil', ['.m-web']], ['Signature mail', ['.m-sig']]];
+    items.forEach(([label, sels]) => {
+      const els = sels.flatMap(s => [...docEl.querySelectorAll(s)]); if (!els.length) return;
+      const box = document.createElement('div'); box.className = 'p2-item' + (label === 'Story' ? ' tall' : '');
+      els.forEach(el => box.appendChild(el.cloneNode(true)));
+      const cap = document.createElement('p'); cap.textContent = label; box.appendChild(cap);
+      p2.appendChild(box);
+    });
+    host.appendChild(p2);
+    host.querySelectorAll('.bp-doc #bp-logo, .bp-doc #bp-supports, .bp-doc .bb-sep').forEach(el => el.remove());
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+    const pdf = new jsPDF({unit:'mm', format:'a4', orientation:'portrait', compress:true});
+    const PW = 210, PH = 297, M = 8;
+    const [r, g, b] = hexToRgb(c.fond);
+    const footerCol = lum(c.fond) < .4 ? [200, 200, 200] : [110, 110, 110];
+    const pages = [docEl, p2];
+    for (let i = 0; i < pages.length; i++){
+      set(`Page ${i + 1} sur ${pages.length}…`);
+      if (i) pdf.addPage();
+      pdf.setFillColor(r, g, b); pdf.rect(0, 0, PW, PH, 'F');
+      const el = pages[i];
+      const cv = await html2canvas(el, {scale: 2, backgroundColor: c.fond, logging: false, useCORS: true});
+      let w = PW - M * 2, h = el.offsetHeight * w / el.offsetWidth;
+      const maxH = PH - M * 2 - 6;
+      if (h > maxH){ w = w * maxH / h; h = maxH; }
+      pdf.addImage(cv.toDataURL('image/jpeg', .92), 'JPEG', (PW - w) / 2, M, w, h);
+      pdf.setFontSize(8); pdf.setTextColor(...footerCol);
+      pdf.text(`${p.identity.name || 'Ma marque'} / Brand Board / créé avec RBL Identity`, PW / 2, PH - 5, {align: 'center'});
+    }
+    return {filename: `${slug(p.identity.name)}-brand-board.pdf`, data: pdf.output('blob')};
+  } finally { host.remove(); }
+};
+
 /* ---------- 8. Router + Actions ---------- */
 function parseRoute(){
   const h = location.hash.replace(/^#\/?/, ''), [path, qs] = h.split('?');
@@ -2492,7 +2710,7 @@ const App = {
     const back = !!this.view && ORDER.indexOf(view.id) < ORDER.indexOf(this.view.id);
     if (animate){ this.editRole = null; this.sheet = false; this.thread = null; this.confirmValidate = false; }
     this.view = view; this.p = p; this.q = q;
-    document.body.dataset.view = view.id; renderTabs(view);
+    document.body.dataset.view = view.id; renderTabs(view); applyTheme(view, p);
     const main = $('#main');
     main.classList.toggle('back', back);
     main.innerHTML = view.html(p, q);
