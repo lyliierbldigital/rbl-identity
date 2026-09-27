@@ -6,7 +6,7 @@
 <title>RBL Identity</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Caveat:wght@600;700&family=Rajdhani:wght@600;700&family=Bebas+Neue&family=Cormorant+Garamond:wght@500;700&family=DM+Serif+Display&family=Fraunces:opsz,wght@9..144,400;9..144,900&family=Inter+Tight:wght@400;600;800&family=Manrope:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@600;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Montserrat:wght@600;800&family=Poppins:wght@600&family=Raleway:wght@600&family=Lato:wght@400;700&family=Open+Sans:wght@400&family=Roboto:wght@400&family=Inter:wght@400&family=Caveat:wght@600;700&family=Rajdhani:wght@600;700&family=Bebas+Neue&family=Cormorant+Garamond:wght@500;700&family=DM+Serif+Display&family=Fraunces:opsz,wght@9..144,400;9..144,900&family=Inter+Tight:wght@400;600;800&family=Manrope:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@600;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -587,6 +587,69 @@ a.row{text-decoration:none;color:var(--text)}
 .faq p{color:#CFCFCF;margin:10px 0 0;line-height:1.5;font-size:14.5px}
 .cm-ic .crown{width:22px;height:16px;color:#fff}
 
+/* ===== Lot 2 : levels ===== */
+.tabs2{display:flex;background:#111;border:1px solid #232323;border-radius:999px;padding:4px;gap:4px;margin:0 0 16px}
+.tabs2 button{flex:1;border:0;background:none;color:#BDBDBD;border-radius:999px;padding:10px 12px;font-family:var(--ff-label);font-weight:700;font-size:14px;letter-spacing:.03em;cursor:pointer;white-space:nowrap}
+.tabs2 button.on{background:var(--red);color:#fff;box-shadow:0 6px 16px -8px rgba(232,19,43,.9)}
+.tabs2.scroll{overflow-x:auto;scrollbar-width:none;border-radius:16px}
+.tabs2.scroll::-webkit-scrollbar{display:none}
+.tabs2.scroll button{flex:0 0 auto}
+.tabs2 .cnt{display:inline-flex;min-width:18px;height:18px;border-radius:9px;background:rgba(255,255,255,.2);font-size:11px;align-items:center;justify-content:center;padding:0 5px;margin-left:4px}
+.colgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.colpick{background:none;border:0;padding:0;cursor:pointer;color:#fff;text-align:left}
+.colpick .sw{display:block;aspect-ratio:1.15;border-radius:14px;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:transform .15s var(--ease)}
+.colpick[aria-pressed="true"] .sw{box-shadow:0 0 0 2px #050505,0 0 0 4px var(--red),0 0 18px rgba(232,19,43,.6)}
+.colpick .nm{display:block;font-size:12px;font-weight:700;margin-top:6px;color:#DADADA}
+.colpick:active .sw{transform:scale(.96)}
+.mypal{background:#F4F4F4;color:#111;border-radius:18px;padding:14px;margin:18px 0 4px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px}
+.mypal b{font-size:14px}
+.mypal .counter{color:#666}
+.mypal-row{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap}
+.mypal .dot{width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.mypal .dot.add{background:#fff;border:1.5px dashed #999;color:#555;font-size:20px;box-shadow:none}
+.imggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.imgpick{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;background:#111}
+.imgpick img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s var(--ease)}
+.imgpick::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent 55%)}
+.imgpick .lbl{position:absolute;left:8px;bottom:7px;right:8px;z-index:2;color:#fff;font-weight:800;font-size:12.5px;text-align:left;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.imgpick[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 18px -2px rgba(232,19,43,.7)}
+.imgpick[aria-pressed="true"] img{transform:scale(1.06)}
+.imgpick .check,.fontpick .check{position:absolute;top:6px;right:6px;z-index:2;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;animation:pop .25s var(--ease)}
+.imgpick .rk,.fontpick .rk{position:absolute;top:6px;left:6px;z-index:2;background:rgba(0,0,0,.7);color:#fff;font-size:10px;font-weight:800;border-radius:999px;padding:3px 7px;border:1px solid rgba(232,19,43,.8)}
+.typo-prev{border-radius:18px;padding:18px;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;box-shadow:inset 0 0 0 1px rgba(128,128,128,.3)}
+.typo-prev .spec-d{font-size:36px;line-height:1;word-break:break-word}
+.typo-prev .tp-s{font-size:17px;opacity:.9}
+.typo-prev .tp-x{font-size:14px;line-height:1.5;opacity:.85}
+.typo-prev .tp-cta{align-self:flex-start;margin-top:6px;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700}
+.fontgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fontpick{position:relative;background:#F7F7F7;color:#111;border:2px solid transparent;border-radius:14px;padding:16px 6px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
+.fontpick .aa{font-size:34px;line-height:1}
+.fontpick .fn{font-size:11.5px;color:#555;font-weight:700;text-align:center;line-height:1.2}
+.fontpick[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 16px -2px rgba(232,19,43,.7)}
+.fontpick .rk{top:auto;bottom:auto;left:50%;transform:translateX(-50%);top:-9px;background:var(--red);border:0;white-space:nowrap}
+.opt{font-family:var(--ff-b);font-weight:500;color:var(--muted);font-size:12.5px;text-transform:none;letter-spacing:0}
+.vis-img{width:100%;height:100%;object-fit:cover;display:block}
+.vis .art,.mood .art{display:block}
+.icon-row{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px}
+.lang-img img{width:100%;height:100%;object-fit:cover}
+.opt3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.optcard{background:#111;border:2px solid #232323;border-radius:14px;padding:12px 6px;cursor:pointer;color:#fff;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.optcard .oa{height:52px;display:flex;align-items:center;justify-content:center;gap:6px;width:100%}
+.optcard .logo-prev{border-radius:10px;padding:0 6px;overflow:hidden}
+.optcard b{font-size:12.5px}
+.optcard small{font-size:11px;color:var(--muted);line-height:1.25}
+.optcard[aria-pressed="true"]{border-color:var(--red);background:#140709;box-shadow:0 0 16px -2px rgba(232,19,43,.55)}
+.posi-h{margin-top:34px;padding-top:20px;border-top:1px solid #222}
+.posi-h .sec-t{margin-top:0}
+.field-l{font-size:13px;font-weight:700;margin:14px 0 8px}
+.bp-lab{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin:16px 0 6px}
+.bp-txt{margin:0;font-size:14.5px;line-height:1.55}
+.bp-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.bp-imgs figure{margin:0;position:relative;border-radius:var(--b-r);overflow:hidden;aspect-ratio:1}
+.bp-imgs img{width:100%;height:100%;object-fit:cover;display:block}
+.bp-imgs figcaption{position:absolute;left:8px;bottom:6px;color:#fff;font-size:12px;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.bp-item .art img{width:100%;height:100%;object-fit:cover}
+
 /* Toast */
 .toast{position:fixed;left:50%;bottom:calc(120px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:11px 16px;border-radius:999px;font-weight:700;font-size:13.5px;opacity:0;pointer-events:none;transition:all .25s var(--ease);z-index:50;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -844,11 +907,11 @@ function newProject(){
   const now = Date.now();
   return {
     id: uid(), schema: 1, createdAt: now, updatedAt: now, step: 'couleurs', generatedAt: null, validatedAt: null, coach: {},
-    colors: {energies: [], variant: null, palette: null, shift: 0, custom: {}},
-    mood: {moods: [], avoid: []},
-    typography: {pairId: null, sample: '', upper: null},
-    visual: {images: [], shapes: [], textures: []},
-    identity: {name: '', activity: '', slogan: '', personality: []},
+    colors: {energies: [], variant: null, palette: null, shift: 0, custom: {}, picked: [], extra: [], mode: null},
+    mood: {moods: [], avoid: [], univers: [], ambiances: []},
+    typography: {pairId: null, sample: '', upper: null, titre: null, sous: null, texte: null},
+    visual: {images: [], shapes: [], textures: [], icons: []},
+    identity: {name: '', activity: '', slogan: '', personality: [], elements: [], logoStyle: null, targets: [], audience: '', problem: '', transformation: '', powers: [], values: []},
     send: {note: '', rating: 0, review: '', publish: false, sentAt: null, communityHidden: false},
   };
 }
@@ -941,7 +1004,7 @@ function universe(p){
   return `<div class="uni" aria-label="Ton univers en construction">
     <span class="u-pal${p.colors.palette ? '' : ' empty-slot'}${P('pal')}">${p.colors.palette ? ROLES.map(([k]) => `<i style="background:${c[k]}"></i>`).join('') : ''}</span>
     <span class="u-aa${pair ? '' : ' empty-slot'}${P('type')}" style="${pair ? `font-family:${Engine.stack(pair.display, pair.serif)};font-weight:${pair.w}` : ''}">Aa</span>
-    <span class="u-mood${m ? '' : ' empty-slot'}${P('mood')}">${m ? m.label : 'Mood'}</span>
+    <span class="u-mood${m ? '' : ' empty-slot'}${P('mood')}">${(UNIVERS.find(u => u.id === (p.mood.univers || [])[0]) || m || {label: 'Mood'}).label}</span>
     <span class="u-shape${hasVis ? '' : ' empty-slot'}${P('vis')}">${shape ? deco(shape, c.principale, c.accent) : hasVis ? `<svg viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="${c.principale}"/></svg>` : ''}</span>
     <span class="u-name" style="${p.identity.name ? `font-family:${Engine.stack(fp.display, fp.serif)};font-weight:${fp.w};${Engine.upper(p) ? 'text-transform:uppercase;' : ''}` : 'color:var(--muted)'}">${esc(p.identity.name || 'Ta marque')}</span>
   </div>`;
@@ -1015,7 +1078,7 @@ Screens.home = {
              : coachCard('accueil', null, {always: true, big: true})}
       <h1 class="home-title">Ton identité <em>visuelle</em></h1>
       <p class="script">Construis une marque qui te ressemble.</p>
-      ${Auth.user && Auth.profile && !Auth.profile.full_name ? `<div class="fmt"><b>Comment tu t’appelles ?</b><p>Pour que Lyliie sache à qui elle parle.</p><div class="bar-row" style="margin-top:10px"><input class="input" id="my-name" data-preserve maxlength="40" placeholder="Ton prénom" autocomplete="given-name"><button class="btn btn-dark btn-sm" data-act="savename">OK</button></div></div>` : ''}
+      ${Auth.user && Auth.profile && !Auth.profile.full_name && !Auth.isAdmin ? `<div class="fmt"><b>Comment tu t’appelles ?</b><p>Pour que Lyliie sache à qui elle parle.</p><div class="bar-row" style="margin-top:10px"><input class="input" id="my-name" data-preserve maxlength="40" placeholder="Ton prénom" autocomplete="given-name"><button class="btn btn-dark btn-sm" data-act="savename">OK</button></div></div>` : ''}
       ${App.localCount ? `<div class="fmt"><b>${App.localCount} projet${App.localCount > 1 ? 's' : ''} sur cet appareil</b><p>Tu as commencé avant de créer ton compte. Ajoute-les pour les retrouver partout.</p><div class="btn-row"><button class="btn btn-red btn-sm" data-act="importlocal">Les ajouter à mon compte</button><button class="btn btn-ghost btn-sm" data-act="skipimport">Non merci</button></div></div>` : ''}
       <button class="btn btn-red btn-block btn-cta" data-act="start"><span aria-hidden="true">＋</span> Créer mon identité</button>
       ${last && !away ? `<button class="resume" data-act="nav" data-to="p/${last.id}/${resumeTarget(last)}">
@@ -1351,7 +1414,15 @@ Screens.brand = {
           <p class="adn">${esc(adn(p))}</p>
           <div class="tags">${id.personality.map(tr => `<span class="tag" style="background:${c.principale};color:${onColor(c.principale)}">${esc(tr)}</span>`).join('')}</div>
           ${!id.personality.length ? `<div style="margin-top:12px">${todo('Mots de personnalité à choisir', 'identite')}</div>` : ''}
+          ${(id.powers || []).length ? `<p class="bp-lab">Tes super-pouvoirs</p><div class="tags">${id.powers.map(x => `<span class="tag o">${esc(x)}</span>`).join('')}</div>` : ''}
+          ${(id.values || []).length ? `<p class="bp-lab">Tes valeurs</p><div class="tags">${id.values.map(x => `<span class="tag o">${esc(x)}</span>`).join('')}</div>` : ''}
         </section>
+        ${((id.targets || []).length || id.audience || id.problem || id.transformation) ? `<section class="bp-sec" id="bp-posi">
+          ${head('Ton positionnement', 'identite', 'adn')}
+          ${((id.targets || []).length || id.audience) ? `<p class="bp-lab">Ton audience cible</p><p class="bp-txt">${esc([...(id.targets || []), id.audience].filter(Boolean).join(', '))}</p>` : ''}
+          ${id.problem ? `<p class="bp-lab">Le problème que tu résous</p><p class="bp-txt">${esc(id.problem)}</p>` : ''}
+          ${id.transformation ? `<p class="bp-lab">Ta transformation promise</p><p class="bp-txt">${esc(id.transformation)}</p>` : ''}
+        </section>` : ''}
 
         <section class="bp-sec" id="bp-logo">
           ${head('Signe de marque', 'identite', 'logo')}
@@ -1377,12 +1448,14 @@ Screens.brand = {
           ${pair ? `
             <div class="bp-type"><div class="bp-aa" style="font-family:${t.fd};${fw}background:${c.principale};color:${onColor(c.principale)}">Aa</div><div><b style="font-family:${t.fd};${fw}">${pair.display}</b><small>Titres et accroches${t.upper ? ', en majuscules' : ''}</small></div></div>
             <div class="bp-type"><div class="bp-aa" style="font-family:${t.fb};font-weight:500;font-size:48px;box-shadow:inset 0 0 0 1.5px currentColor">Aa</div><div><b style="font-family:${t.fb}">${pair.body}</b><small>Textes, légendes, boutons</small></div></div>
-            <div class="hier"><p class="h1" style="${fw}${up}">${N}</p><p class="h2">${S}</p><p>Voici à quoi ressemble un paragraphe dans ton identité : clair, cohérent, reconnaissable.</p></div>` : todo('Typographie pas encore choisie', 'typos')}
+            <div class="hier"><p class="h1" style="${fw}${up}">${N}</p><p class="h2" style="font-family:${t.fs || t.fb};font-weight:${t.sw || 600}">${S}</p><p>Voici à quoi ressemble un paragraphe dans ton identité : clair, cohérent, reconnaissable.</p></div>` : todo('Typographie pas encore choisie', 'typos')}
         </section>
 
         <section class="bp-sec" id="bp-mood">
           ${head('Mood', 'mood', 'mood')}
-          ${moods.length ? `<div class="bp-moods ${moods.length === 1 ? 'one' : ''}">${moods.map(m => `<div><div class="art">${moodBoard(m, c)}</div><p class="mock-label">${m.label} : ${m.desc.toLowerCase()}</p></div>`).join('')}</div>` : todo('Mood pas encore choisi', 'mood')}
+          ${[...(p.mood.univers || []).map(x => UNIVERS.find(u => u.id === x)), ...(p.mood.ambiances || []).map(x => AMBIANCES.find(u => u.id === x))].filter(Boolean).length
+            ? `<div class="bp-imgs">${[...(p.mood.univers || []).map(x => UNIVERS.find(u => u.id === x)), ...(p.mood.ambiances || []).map(x => AMBIANCES.find(u => u.id === x))].filter(Boolean).map(x => `<figure><img src="${x.img}" alt="" loading="lazy"><figcaption>${x.label}</figcaption></figure>`).join('')}</div>`
+            : moods.length ? `<div class="bp-moods ${moods.length === 1 ? 'one' : ''}">${moods.map(m => `<div><div class="art">${moodBoard(m, c)}</div><p class="mock-label">${m.label} : ${m.desc.toLowerCase()}</p></div>`).join('')}</div>` : todo('Mood pas encore choisi', 'mood')}
           ${p.mood.avoid.length ? `<p class="avoid"><b>À éviter</b> ${p.mood.avoid.map(esc).join(', ').toLowerCase()}.</p>` : ''}
           ${comp ? `<div class="comp" style="margin-top:18px">${compArt(comp.id, c)}<div><b>Composition : ${comp.name.toLowerCase()}</b><p>${comp.desc}</p></div></div>` : ''}
         </section>
@@ -1473,7 +1546,7 @@ function sheet(p){
     <div class="hscroll" data-keep="sh-pal">${pals.map(pl => { const on = p.colors.variant === pl.id, cols = on ? p.colors.palette : pl.colors; return `<button class="pal-chip" data-act="palette" data-id="${pl.id}" ${pressed(on)}><span class="st">${ROLES.map(([k]) => `<i style="background:${cols[k]}"></i>`).join('')}</span><small>${pl.name}</small></button>`; }).join('')}
       <button class="pal-chip" data-act="shuffle" style="justify-content:center;align-items:center"><small>Autres propositions</small></button></div>` : ''}
     <p class="sheet-l">Typographie</p>
-    <div class="hscroll" data-keep="sh-font">${Engine.rankPairs(p.mood.moods).map(f => `<button class="font-chip" data-act="pair" data-id="${f.id}" ${pressed(p.typography.pairId === f.id)}><span style="font-family:${Engine.stack(f.display, f.serif)};font-weight:${f.w}">Aa</span><small>${f.label}</small></button>`).join('')}</div>
+    <div class="hscroll" data-keep="sh-font">${rankFonts(FONT_T, p.mood.moods).map(f => `<button class="font-chip" data-act="fontpick" data-slot="titre" data-id="${f.id}" ${pressed(p.typography.titre === f.id)}><span style="font-family:${Engine.stack(f.name, f.serif)};font-weight:${f.w}">Aa</span><small>${f.name}</small></button>`).join('')}</div>
     <div class="chips" style="margin-top:12px"><button class="chip" data-act="upper" ${pressed(Engine.upper(p))}>Titres en majuscules</button></div>
   </div>`;
 }
@@ -1485,7 +1558,7 @@ Screens.modifier = {
     const img = p.visual.images[0];
     const rows = [
       ['couleurs','Couleurs', p.colors.palette ? ROLES.map(([k]) => c[k]).join(' ') : 'À choisir', `<span class="mini-pal" style="width:56px;height:56px">${miniPal(p)}</span>`],
-      ['mood','Mood', p.mood.moods.map(x => MOODS.find(y => y.id === x).label).join(', ') || 'À choisir', m ? `<span style="position:absolute;inset:0">${m.art(c)}</span>` : ''],
+      ['mood','Mood', p.mood.moods.map(x => MOODS.find(y => y.id === x).label).join(', ') || 'À choisir', (p.mood.univers || []).length ? `<img src="univers-${p.mood.univers[0]}.webp" alt="" style="width:100%;height:100%;object-fit:cover">` : m ? `<span style="position:absolute;inset:0">${m.art(c)}</span>` : ''],
       ['typos','Typographies', pair ? `${pair.display} + ${pair.body}` : 'À choisir', pair ? `<span style="font-family:${Engine.stack(pair.display, pair.serif)};font-weight:${pair.w};font-size:26px">Aa</span>` : ''],
       ['visuels','Style visuel', [...p.visual.images, ...p.visual.shapes, ...p.visual.textures].length ? `${p.visual.images.length + p.visual.shapes.length + p.visual.textures.length} éléments choisis` : 'À choisir', img ? `<span style="position:absolute;inset:0">${visualArt('images', img, c)}</span>` : ''],
       ['identite','Identité', [p.identity.name, p.identity.slogan].filter(Boolean).map(esc).join(' / ') || 'À compléter', `<span style="font-family:var(--ff-d);font-weight:900;color:var(--red);font-size:20px">${esc((p.identity.name || '?').slice(0, 2))}</span>`],
@@ -2018,6 +2091,370 @@ Screens.admin = {
   },
 };
 
+/* ===================== LOT 2 : les levels ===================== */
+const COLOR_LIB = [
+  {name:'Rouge passion', hex:'#E10600', mean:['Énergie','Passion','Action']},
+  {name:'Noir intense', hex:'#0A0A0A', mean:['Élégance','Confiance','Force']},
+  {name:'Blanc pur', hex:'#FAFAFA', mean:['Clarté','Simplicité','Équilibre']},
+  {name:'Gris anthracite', hex:'#33363B', mean:['Stabilité','Sérieux','Modernité']},
+  {name:'Gris perle', hex:'#9A9A9A', mean:['Neutralité','Calme','Professionnalisme']},
+  {name:'Crème', hex:'#F4EDE1', mean:['Douceur','Chaleur','Naturel']},
+  {name:'Beige sable', hex:'#D8C3A5', mean:['Authenticité','Chaleur','Sérénité']},
+  {name:'Rose vif', hex:'#F06AA6', mean:['Joie','Créativité','Audace']},
+  {name:'Rose poudré', hex:'#E9B8C4', mean:['Douceur','Soin','Délicatesse']},
+  {name:'Bordeaux', hex:'#7A1230', mean:['Raffinement','Intensité','Maturité']},
+  {name:'Violet', hex:'#7B42D8', mean:['Créativité','Intuition','Mystère']},
+  {name:'Lavande', hex:'#B9A7E8', mean:['Sérénité','Imagination','Délicatesse']},
+  {name:'Bleu roi', hex:'#1F4FD1', mean:['Confiance','Expertise','Fiabilité']},
+  {name:'Bleu nuit', hex:'#14213D', mean:['Profondeur','Sérieux','Élégance']},
+  {name:'Bleu ciel', hex:'#8EC5FF', mean:['Liberté','Légèreté','Ouverture']},
+  {name:'Turquoise', hex:'#14B8A6', mean:['Fraîcheur','Clarté','Équilibre']},
+  {name:'Vert émeraude', hex:'#0F7B4A', mean:['Croissance','Harmonie','Prospérité']},
+  {name:'Vert sauge', hex:'#8FA88B', mean:['Nature','Calme','Bien-être']},
+  {name:'Orange', hex:'#FF6A13', mean:['Enthousiasme','Audace','Chaleur']},
+  {name:'Terracotta', hex:'#C0643F', mean:['Chaleur','Artisanat','Ancrage']},
+  {name:'Jaune soleil', hex:'#FFC83D', mean:['Optimisme','Lumière','Énergie']},
+  {name:'Or', hex:'#C8A96A', mean:['Prestige','Réussite','Luxe']},
+];
+const colorInfo = h => COLOR_LIB.find(x => x.hex.toUpperCase() === String(h).toUpperCase()) || {name:'Ma couleur', hex:h, mean:['Unique','Personnelle','Signature']};
+
+const UNIVERS = [
+  ['streetwear','Streetwear',['urban','bold']], ['elegant','Élégant',['chic']], ['minimaliste','Minimaliste',['chic','tech']],
+  ['glamour','Glamour',['chic','bold']], ['dark','Dark',['bold','urban']], ['nature','Nature',['organique']],
+  ['artistique','Artistique',['playful','urban']], ['moderne','Moderne',['tech']], ['vintage','Vintage',['organique','chic']],
+].map(([id, label, moods]) => ({id, label, moods, img:`univers-${id}.webp`}));
+const AMBIANCES = [
+  ['energie','Énergie',['playful','bold']], ['douceur','Douceur',['organique']], ['mystere','Mystère',['bold']],
+  ['lumiere','Lumière',['playful']], ['nuit-urbaine','Nuit urbaine',['urban','tech']], ['chaleur','Chaleur',['organique']],
+  ['luxe','Luxe',['chic']], ['liberte','Liberté',['organique','playful']], ['serenite','Sérénité',['chic','organique']],
+].map(([id, label, moods]) => ({id, label, moods, img:`ambiance-${id}.webp`}));
+function deriveMoods(p){
+  const score = {};
+  (p.mood.univers || []).forEach((id, i) => (UNIVERS.find(u => u.id === id) || {moods: []}).moods.forEach((m, j) => { score[m] = (score[m] || 0) + 3 - j * .5 - i * .3; }));
+  (p.mood.ambiances || []).forEach(id => (AMBIANCES.find(u => u.id === id) || {moods: []}).moods.forEach((m, j) => { score[m] = (score[m] || 0) + 1.2 - j * .3; }));
+  p.mood.moods = Object.entries(score).sort((a, b) => b[1] - a[1]).slice(0, 2).map(x => x[0]);
+}
+
+const FONT_T = [
+  {id:'bebas',name:'Bebas Neue',w:400,upper:true,moods:['urban','bold','tech']},
+  {id:'anton',name:'Anton',w:400,upper:true,moods:['urban','bold']},
+  {id:'montserrat',name:'Montserrat',w:800,moods:['tech','bold','chic']},
+  {id:'playfair',name:'Playfair Display',w:900,serif:true,moods:['chic','bold']},
+  {id:'dmserif',name:'DM Serif Display',w:400,serif:true,moods:['chic','organique']},
+  {id:'syne',name:'Syne',w:800,moods:['playful','tech','urban']},
+  {id:'unbounded',name:'Unbounded',w:900,moods:['tech','playful']},
+  {id:'fraunces',name:'Fraunces',w:900,serif:true,moods:['organique','playful','chic']},
+  {id:'cormorant',name:'Cormorant Garamond',w:700,serif:true,moods:['chic','organique']},
+];
+const FONT_S = [
+  {id:'poppins',name:'Poppins',w:600,moods:['playful','tech','bold']},
+  {id:'raleway',name:'Raleway',w:600,moods:['chic','organique']},
+  {id:'montserrat-s',name:'Montserrat',w:600,moods:['tech','bold','urban']},
+  {id:'lato-s',name:'Lato',w:700,moods:['organique','chic']},
+  {id:'intertight',name:'Inter Tight',w:600,moods:['tech','urban']},
+  {id:'cormorant-s',name:'Cormorant Garamond',w:500,serif:true,moods:['chic']},
+];
+const FONT_X = [
+  {id:'inter',name:'Inter',w:400,moods:['tech','urban','bold']},
+  {id:'opensans',name:'Open Sans',w:400,moods:['organique','playful']},
+  {id:'roboto',name:'Roboto',w:400,moods:['tech']},
+  {id:'manrope',name:'Manrope',w:400,moods:['chic','tech']},
+  {id:'lato-x',name:'Lato',w:400,moods:['organique','chic']},
+];
+const fontById = (list, id) => list.find(f => f.id === id) || null;
+const rankFonts = (list, moods) => list.map((f, i) => ({...f, score: f.moods.filter(m => moods.includes(m)).length, i})).sort((a, b) => b.score - a.score || a.i - b.i);
+
+/* Catalogue du style visuel (remplace l’ancien) */
+VISUALS.images.max = 3;
+VISUALS.images.items = [
+  ['illu-bd','BD','Comics, énergie','illu'], ['illu-lineart','Trait fin','Minimaliste, élégant','illu'], ['illu-aquarelle','Aquarelle','Doux, artistique','illu'],
+  ['illu-flat','Vectorielle','Moderne, coloré','illu'], ['illu-collage','Collage','Créatif, matière','illu'], ['illu-3d','3D','Ludique, volume','illu'],
+  ['photo-portrait','Portrait','Humain, authentique','photo'], ['photo-workspace','Workspace','Pro, inspirant','photo'], ['photo-produit','Produit','Mise en scène soignée','photo'],
+  ['photo-coulisses','Coulisses','Fait main, vrai','photo'], ['photo-urbain','Urbain','Mouvement, ville','photo'], ['photo-gros-plan','Gros plan','Détail, matière','photo'],
+].map(([id, label, desc, tab]) => ({id, label, desc, tab, img: id + '.webp'}));
+VISUALS.textures.items = [
+  ['grain','Grain','Argentique, brut'], ['papier','Papier','Froissé, fait main'], ['beton','Béton','Urbain, minéral'],
+  ['marbre','Marbre','Noble, luxueux'], ['velours','Velours','Doux, sensuel'], ['pinceau','Pinceau','Artistique, matière'],
+].map(([id, label, desc]) => ({id, label, desc, img:`texture-${id}.webp`}));
+VISUALS.icons = {title:'Icônes', max:1, items:[
+  {id:'trait',label:'Trait fin',desc:'Léger, élégant'}, {id:'plein',label:'Plein',desc:'Fort, lisible'}, {id:'neon',label:'Néon',desc:'Lumineux'},
+  {id:'main',label:'Dessiné main',desc:'Spontané, humain'}, {id:'duotone',label:'Duotone',desc:'Deux tons'}, {id:'rond',label:'Pastille',desc:'Icône dans un rond'}]};
+Object.assign(VIS_FROM_MOOD, {
+  urban:['illu-bd','photo-urbain','illu-collage','grain','beton','neon'], chic:['photo-portrait','illu-lineart','marbre','velours','papier','trait'],
+  playful:['illu-flat','illu-3d','illu-collage','pinceau','rond'], bold:['photo-urbain','illu-bd','grain','velours','plein'],
+  organique:['illu-aquarelle','photo-coulisses','photo-gros-plan','papier','pinceau','main'], tech:['illu-3d','photo-workspace','illu-flat','beton','duotone']});
+const ICON_GLYPHS = ['M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z', 'M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z', 'M20 12a8 8 0 0 1-11.5 7.2L4 20l1-4.3A8 8 0 1 1 20 12z'];
+function iconSvg(style, d, c, size = 30){
+  const s = `<svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true"`;
+  switch(style){
+    case 'plein': return `${s}><path d="${d}" fill="${c.principale}"/></svg>`;
+    case 'neon': return `${s} style="filter:drop-shadow(0 0 3px ${c.principale})"><path d="${d}" fill="none" stroke="${c.principale}" stroke-width="2" stroke-linejoin="round"/></svg>`;
+    case 'main': return `${s}><path d="${d}" fill="none" stroke="${c.principale}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-4 12 12)"/><path d="${d}" fill="none" stroke="${c.principale}" stroke-width="1" opacity=".55" transform="translate(.7 .5)"/></svg>`;
+    case 'duotone': return `${s}><path d="${d}" fill="${c.secondaire}" opacity=".45" transform="translate(1.2 1.2)"/><path d="${d}" fill="none" stroke="${c.principale}" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+    case 'rond': return `${s}><circle cx="12" cy="12" r="12" fill="${c.principale}"/><path d="${d}" fill="${onColor(c.principale)}" transform="translate(4.2 4.2) scale(.65)"/></svg>`;
+    default: return `${s}><path d="${d}" fill="none" stroke="${c.principale}" stroke-width="1.3" stroke-linejoin="round"/></svg>`;
+  }
+}
+/* visualArt : images réelles et icônes */
+const _visualArt = visualArt;
+visualArt = function(group, id, c){
+  const it = (VISUALS[group] && VISUALS[group].items || []).find(x => x.id === id);
+  if (it && it.img) return `<img class="vis-img" src="${it.img}" alt="" loading="lazy">`;
+  if (group === 'icons') return `<span class="icon-row" style="background:${id === 'neon' ? c.dark : c.fond}">${ICON_GLYPHS.map(d => iconSvg(id, d, c)).join('')}</span>`;
+  return _visualArt(group, id, c);
+};
+
+/* Moteur : palette à partir des couleurs choisies, 3 typos */
+Engine.defaultMode = picked => { const L = picked.map(lum); return L.some(l => l < .03) && !L.some(l => l > .8) ? 'sombre' : 'clair'; };
+Engine.buildPalette = function(picked, mode){
+  if (!picked || !picked.length) return null;
+  const info = picked.map(h => ({h: h.toUpperCase(), l: lum(h)}));
+  const lights = info.filter(x => x.l > .72), darks = info.filter(x => x.l < .035), cols = info.filter(x => x.l <= .72 && x.l >= .035);
+  const ref = (cols[0] || info[0]).h, [rh, rs] = hexToHsl(ref);
+  const dark = darks[0] ? darks[0].h : hslToHex(rh, Math.min(rs, 18), 7);
+  const light = lights[0] ? lights[0].h : hslToHex(rh, Math.min(rs, 25), 97);
+  const pool = [...cols.map(x => x.h), ...darks.slice(1).map(x => x.h), ...lights.slice(1).map(x => x.h)];
+  let principale = pool[0] || (mode === 'sombre' ? light : dark);
+  if (!pool.length && darks.length && lights.length) principale = mode === 'sombre' ? light : dark;
+  const secondaire = pool[1] || adjust(principale, lum(principale) > .5 ? -25 : 22);
+  const accent = pool[2] || hslToHex(hexToHsl(principale)[0] + 35, Math.max(hexToHsl(principale)[1], 45), 55);
+  const fond = mode === 'sombre' ? dark : light, texte = mode === 'sombre' ? light : dark;
+  return {fond, principale, secondaire, accent, texte};
+};
+Engine.sub = function(p){
+  const t = p.typography, s = fontById(FONT_S, t.sous);
+  if (s) return s;
+  const x = fontById(FONT_X, t.texte);
+  if (x) return {name: x.name, w: 600, serif: x.serif};
+  const pr = this.pair(p) || FONT_PAIRS[0];
+  return {name: pr.body, w: 600};
+};
+const _pair = Engine.pair.bind(Engine);
+Engine.pair = function(p){
+  const t = p.typography;
+  if (t.titre){
+    const T = fontById(FONT_T, t.titre) || FONT_T[0], X = fontById(FONT_X, t.texte) || FONT_X[0];
+    return {id:'custom', label:T.name, display:T.name, body:X.name, w:T.w, upper:!!T.upper, serif:!!T.serif, moods:T.moods};
+  }
+  return _pair(p);
+};
+const _tokens = Engine.tokens.bind(Engine);
+Engine.tokens = function(p){ const t = _tokens(p), s = this.sub(p); t.fs = this.stack(s.name, s.serif); t.sw = s.w; return t; };
+STEPS[0].done = p => !!p.colors.palette; STEPS[0].need = 'Choisis au moins une couleur.';
+STEPS[1].need = 'Choisis au moins un univers.';
+STEPS[2].done = p => !!p.typography.pairId || !!(p.typography.titre && p.typography.texte); STEPS[2].need = 'Choisis au moins ta typo de titres et ta typo de textes.';
+STEPS[3].need = 'Choisis au moins une illustration ou une photo.';
+
+const tabs2 = (key, items, cur, count) => `<div class="tabs2${items.length > 3 ? ' scroll' : ''}" role="tablist">${items.map(([k, l]) => `<button role="tab" aria-selected="${cur === k}" class="${cur === k ? 'on' : ''}" data-act="tab" data-group="${key}" data-id="${k}">${l}${count && count(k) ? ` <span class="cnt">${count(k)}</span>` : ''}</button>`).join('')}</div>`;
+const imgPick = (act, group, x, on, reco, extra = '') => `<button class="imgpick" data-act="${act}" data-group="${group}" data-id="${x.id}" ${pressed(on)}${extra}><img src="${x.img}" alt="" loading="lazy"><span class="lbl">${x.label}</span>${on ? '<span class="check">✓</span>' : ''}${reco ? '<span class="rk">Pour toi</span>' : ''}</button>`;
+
+/* ---------- LEVEL 01 : Couleurs ---------- */
+Screens.couleurs = {
+  id:'couleurs', title:'Couleurs',
+  html(p, q){
+    const C = p.colors, picked = C.picked || [], tab = App.colTab || 'phares', pal = C.palette, cust = C.custom || {};
+    const base = Engine.buildPalette(picked, C.mode) || {};
+    const extra = C.extra || [];
+    const swatch = h => { const i = picked.indexOf(h); const nm = colorInfo(h).name; return `<button class="colpick" data-act="pickcolor" data-hex="${h}" ${pressed(i >= 0)} aria-label="${esc(nm)}"><span class="sw" style="background:${h}">${i >= 0 ? `<span class="badge">${i + 1}</span>` : ''}</span><span class="nm">${esc(nm)}</span></button>`; };
+    return `<section class="screen">
+      ${stepper(p, 'couleurs', q)}
+      <h1>Tes <em>couleurs</em></h1>
+      <p class="lead">Choisis jusqu’à 5 couleurs qui représentent ton univers. La première devient ta couleur principale.</p>
+      ${tabs2('colTab', [['phares', 'Couleurs phares'], ['perso', 'Personnalisées']], tab)}
+      ${tab === 'phares' ? `<div class="colgrid">${COLOR_LIB.map(x => swatch(x.hex)).join('')}</div>`
+        : `<div class="fmt"><b>Ajoute ta propre couleur</b><p>Tu as déjà une couleur fétiche ? Choisis-la dans le nuancier.</p>
+            <div class="btn-row"><label class="btn btn-red btn-sm picker">＋ Choisir une couleur<input type="color" data-addcolor value="#E8132B" aria-label="Choisir une couleur"></label></div>
+            ${extra.length ? `<div class="colgrid" style="margin-top:14px">${extra.map(swatch).join('')}</div>` : ''}</div>`}
+      <div class="mypal"><b>Ma palette</b><span class="counter">${picked.length}/5</span>
+        <div class="mypal-row">${picked.map(h => `<button class="dot" style="background:${h}" data-act="pickcolor" data-hex="${h}" aria-label="Retirer ${esc(colorInfo(h).name)}"></button>`).join('')}${picked.length < 5 ? `<button class="dot add" data-act="tab" data-group="colTab" data-id="perso" aria-label="Ajouter une couleur personnalisée">+</button>` : ''}</div></div>
+      ${picked.length ? `<h2 class="sec-t">Ton fond</h2><div class="chips">${[['clair', 'Fond clair'], ['sombre', 'Fond sombre']].map(([k, l]) => `<button class="chip" data-act="colmode" data-id="${k}" ${pressed(C.mode === k)}>${l}</button>`).join('')}</div>` : ''}
+      ${pal ? `
+        <h2 class="sec-t">Ta palette de marque</h2>
+        <p class="sec-sub">L’app répartit tes couleurs par rôle. Touche une couleur pour l’ajuster.</p>
+        <div class="pal-strip reveal" style="border-radius:14px;overflow:hidden;margin-bottom:12px">${ROLES.map(([k], i) => `<span style="--i:${i};background:${pal[k]}"></span>`).join('')}</div>
+        <div class="swatches">${ROLES.map(([k, l]) => {
+          const open = App.editRole === k, cur = pal[k], orig = base[k] || cur;
+          const shades = [...new Set([-30, -20, -10, 0, 10, 20, 30].map(dl => adjust(orig, dl)))];
+          return `<div class="sw-wrap">
+            <button class="swatch" data-act="role" data-id="${k}" aria-expanded="${open}"><i style="background:${cur}"></i><span><b>${l}${cust[k] ? ' <small class="mod">ajustée</small>' : ''}</b><br><span>${cur}</span></span><em>${open ? 'Fermer' : 'Ajuster'}</em></button>
+            ${open ? `<div class="tune">
+              <div class="shades">${shades.map(h => `<button class="shade${h === cur ? ' on' : ''}" style="background:${h}" data-act="setcolor" data-role="${k}" data-hex="${h}" aria-label="Nuance ${h}"></button>`).join('')}</div>
+              <div class="tune-acts">
+                <label class="btn btn-ghost btn-sm picker">Couleur libre<input type="color" value="${cur.toLowerCase()}" data-color="${k}" aria-label="Couleur libre pour ${l}"></label>
+                <button class="btn btn-ghost btn-sm" data-act="copy" data-text="${cur}">Copier ${cur}</button>
+                ${cust[k] ? `<button class="btn btn-ghost btn-sm" data-act="resetcolor" data-role="${k}">Original</button>` : ''}
+              </div></div>` : ''}
+          </div>`; }).join('')}</div>
+        <h2 class="sec-t">Lisibilité</h2>
+        <div class="legi">${legiRows(pal)}</div>` : ''}
+    </section>`;
+  },
+  bar(p, q){ return wizardBar(p, q, 'couleurs'); },
+};
+
+/* ---------- LEVEL 02 : Mood ---------- */
+Screens.mood = {
+  id:'mood', title:'Mood',
+  html(p, q){
+    const tab = App.moodTab || 'univers', list = tab === 'univers' ? UNIVERS : AMBIANCES, sel = p.mood[tab] || [];
+    return `<section class="screen">
+      ${stepper(p, 'mood', q)}
+      <h1>Ton <em>mood</em></h1>
+      <p class="lead">Quel univers te correspond le plus ? Choisis jusqu’à 2 univers, puis 2 ambiances.</p>
+      ${tabs2('moodTab', [['univers', 'Univers'], ['ambiances', 'Ambiances']], tab, k => (p.mood[k] || []).length)}
+      <div class="imggrid">${list.map(x => imgPick('moodpick', tab, x, sel.includes(x.id))).join('')}</div>
+      ${tab === 'univers' && sel.length ? `<button class="btn btn-ghost btn-block" data-act="tab" data-group="moodTab" data-id="ambiances" style="margin-top:14px">Choisir mes ambiances</button>` : ''}
+      <h2 class="sec-t">Ce que tu ne veux pas</h2>
+      <p class="sec-sub">Facultatif. Ça aide à écarter ce qui ne te ressemble pas.</p>
+      <div class="chips">${AVOID.map(a => `<button class="chip no" data-act="avoid" data-id="${esc(a)}" ${pressed(p.mood.avoid.includes(a))}>${a}</button>`).join('')}</div>
+    </section>`;
+  },
+  bar(p, q){ return wizardBar(p, q, 'mood'); },
+};
+
+/* ---------- LEVEL 03 : Typographies ---------- */
+Screens.typos = {
+  id:'typos', title:'Typographies',
+  html(p, q){
+    const T = p.typography, c = Engine.ext(Engine.pal(p)), moods = p.mood.moods;
+    const sample = T.sample || p.identity.name || 'Ma marque';
+    const inv = App.typoInv, bg = inv ? c.texte : c.fond, fg = inv ? c.fond : c.texte;
+    const ft = fontById(FONT_T, T.titre), fs = fontById(FONT_S, T.sous), fx = fontById(FONT_X, T.texte);
+    const upper = Engine.upper(p);
+    const grid = (slot, list, sel) => `<div class="fontgrid">${rankFonts(list, moods).map((f, i) => `<button class="fontpick" data-act="fontpick" data-slot="${slot}" data-id="${f.id}" ${pressed(sel === f.id)}>
+      <span class="aa" style="font-family:${Engine.stack(f.name, f.serif)};font-weight:${f.w};${slot === 'titre' && (T.upper == null ? f.upper : upper) ? 'text-transform:uppercase;' : ''}">Aa</span><span class="fn">${f.name}</span>${sel === f.id ? '<span class="check">✓</span>' : ''}${f.score > 0 && i < 2 ? '<span class="rk">Pour toi</span>' : ''}</button>`).join('')}</div>`;
+    return `<section class="screen">
+      ${stepper(p, 'typos', q)}
+      <h1>Tes <em>typographies</em></h1>
+      <p class="lead">Les polices donnent du caractère à ta marque. Choisis celles qui te plaisent, l’aperçu se met à jour en direct.</p>
+      <div class="typo-prev" style="background:${bg};color:${fg}">
+        <span class="spec-d" style="font-family:${ft ? Engine.stack(ft.name, ft.serif) : 'inherit'};font-weight:${ft ? ft.w : 700};${ft && upper ? 'text-transform:uppercase;' : ''}">${esc(sample)}</span>
+        <span class="tp-s" style="font-family:${fs ? Engine.stack(fs.name, fs.serif) : 'inherit'};font-weight:${fs ? fs.w : 600}">${esc(p.identity.slogan || 'Ton sous-titre ici')}</span>
+        <span class="tp-x" style="font-family:${fx ? Engine.stack(fx.name) : 'inherit'}">Le texte de tous les jours : clair, lisible, agréable à lire sur ton site et tes réseaux.</span>
+        <span class="tp-cta" style="background:${c.principale};color:${onColor(c.principale)};font-family:${fx ? Engine.stack(fx.name) : 'inherit'}">Découvrir</span>
+      </div>
+      <label class="field"><span>Teste avec tes mots</span><input class="input" data-input="typography.sample" value="${esc(sample)}" maxlength="40" placeholder="Le nom de ta marque"></label>
+      <div class="chips" style="margin:-2px 0 6px">
+        <button class="chip" data-act="upper" ${pressed(upper)}>Titres en majuscules</button>
+        <button class="chip" data-act="typoinv" ${pressed(inv)}>Inverser les couleurs</button>
+      </div>
+      <h2 class="sec-t">Titres et logo</h2>${grid('titre', FONT_T, T.titre)}
+      <h2 class="sec-t">Sous-titres <small class="opt">facultatif</small></h2>${grid('sous', FONT_S, T.sous)}
+      <h2 class="sec-t">Textes</h2>${grid('texte', FONT_X, T.texte)}
+    </section>`;
+  },
+  bar(p, q){ return wizardBar(p, q, 'typos'); },
+};
+
+/* ---------- LEVEL 04 : Style visuel ---------- */
+Screens.visuels = {
+  id:'visuels', title:'Style visuel',
+  html(p, q){
+    const t = Engine.tokens(p), c = t.c, tab = App.visTab || 'illu';
+    const reco = new Set(p.mood.moods.flatMap(m => VIS_FROM_MOOD[m] || []));
+    const img = p.visual.images[0], shape = p.visual.shapes[0];
+    const count = k => k === 'illu' || k === 'photo' ? p.visual.images.filter(id => id.startsWith(k)).length : (p.visual[k] || []).length;
+    let grid = '';
+    if (tab === 'illu' || tab === 'photo') grid = `<div class="imggrid">${VISUALS.images.items.filter(x => x.tab === tab).map(x => imgPick('visual', 'images', x, p.visual.images.includes(x.id), reco.has(x.id))).join('')}</div><p class="sec-sub" style="margin-top:10px">Jusqu’à 3 images au total, illustrations et photos confondues.</p>`;
+    else if (tab === 'textures') grid = `<div class="imggrid">${VISUALS.textures.items.map(x => imgPick('visual', 'textures', x, p.visual.textures.includes(x.id), reco.has(x.id))).join('')}</div>`;
+    else if (tab === 'icons') grid = `<div class="grid2">${VISUALS.icons.items.map(x => `<button class="pick vis" data-act="visual" data-group="icons" data-id="${x.id}" ${pressed((p.visual.icons || []).includes(x.id))}>${(p.visual.icons || []).includes(x.id) ? '<span class="badge">✓</span>' : ''}<span class="art">${visualArt('icons', x.id, c)}</span><span class="pick-body"><b>${x.label}</b><small>${x.desc}</small>${reco.has(x.id) ? '<span class="reco sm">Pour toi</span>' : ''}</span></button>`).join('')}</div>`;
+    else grid = `<div class="grid2">${VISUALS.shapes.items.map(x => `<button class="pick vis" data-act="visual" data-group="shapes" data-id="${x.id}" ${pressed(p.visual.shapes.includes(x.id))}>${badge(p.visual.shapes, x.id)}<span class="art">${visualArt('shapes', x.id, c)}</span><span class="pick-body"><b>${x.label}</b><small>${x.desc}</small></span></button>`).join('')}</div>`;
+    return `<section class="screen">
+      ${stepper(p, 'visuels', q)}
+      <h1>Ton style <em>visuel</em></h1>
+      <p class="lead">Sélectionne les visuels qui te représentent. Ça crée un style graphique unique et cohérent pour ta marque.</p>
+      <div class="lang ${t.tex && ['grain','papier','beton'].includes(t.tex) ? 'tex-' + t.tex : ''}" style="--lr:${t.radius}px;background:${c.dark}">
+        <span class="lang-img">${img ? visualArt('images', img, c) : '<span class="lang-ph">Choisis une illustration ou une photo</span>'}</span>
+        <span class="lang-side">${deco(shape, c.principale, c.accent)}<span class="lang-t" style="font-family:${t.fd};font-weight:${t.pair.w};${t.upper ? 'text-transform:uppercase;' : ''}color:${c.light}">${esc(p.identity.name || 'Ta marque')}</span></span>
+      </div>
+      <p class="sec-sub" style="margin:8px 0 14px">Aperçu de ton langage graphique.</p>
+      ${tabs2('visTab', [['illu', 'Illustrations'], ['photo', 'Photos'], ['icons', 'Icônes'], ['textures', 'Textures'], ['shapes', 'Formes']], tab, count)}
+      ${grid}
+    </section>`;
+  },
+  bar(p, q){ return wizardBar(p, q, 'visuels'); },
+};
+
+/* ---------- LEVEL 05 : Identité et positionnement ---------- */
+const ELEMENTS = [['icone','Icône','Un symbole simple'], ['signature','Signature','Ton nom manuscrit'], ['element','Élément graphique','Un motif récurrent']];
+const LOGO_STYLES = [['classique','Classique','Symbole + nom'], ['typo','Typo','Ton nom seul'], ['icone','Icône seule','Juste le symbole']];
+const TARGETS = ['Femmes entrepreneuses','Créatrices de contenu','Mamans entrepreneuses','Indépendantes','Étudiantes','Particuliers','Professionnels','Artisanes'];
+const POWERS = ['Tu simplifies les choses complexes','Tu crées du lien','Tu fais preuve de créativité','Tu inspires confiance','Tu motives les autres','Tu as l’œil pour le détail','Tu trouves des solutions','Tu transmets avec passion'];
+const VALUES = ['Authenticité','Liberté','Impact','Bienveillance','Excellence','Audace','Transparence','Partage','Créativité','Engagement'];
+Screens.identite = {
+  id:'identite', title:'Identité',
+  html(p, q){
+    const t = Engine.tokens(p), c = t.c, id = p.identity, sug = Engine.suggestTraits(p);
+    const up = t.upper ? 'text-transform:uppercase;' : '';
+    const nm = esc(id.name || 'Ta marque');
+    const elArt = {
+      icone: `<svg viewBox="0 0 64 44" width="44" height="30" aria-hidden="true"><path d="M4 38 L4 12 L18 24 L32 4 L46 24 L60 12 L60 38 Z" fill="none" stroke="${c.principale}" stroke-width="4" stroke-linejoin="round"/></svg>`,
+      signature: `<span style="font-family:Caveat,cursive;font-size:24px;font-weight:700;color:${c.principale}">${esc((id.name || 'Signature').split(' ')[0])}</span>`,
+      element: `<svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><path d="M20 3l4 13 13 4-13 4-4 13-4-13-13-4 13-4z" fill="${c.principale}"/></svg>`,
+    };
+    const logoArt = {
+      classique: `${monogram(p, t, 30)}<span style="font-family:${t.fd};font-weight:${t.pair.w};${up}font-size:15px">${nm}</span>`,
+      typo: `<span style="font-family:${t.fd};font-weight:${t.pair.w};${up}font-size:19px">${nm}<span style="color:${c.principale}">.</span></span>`,
+      icone: monogram(p, t, 40),
+    };
+    const chipList = (list, arr, act, max) => `<div class="chips">${list.map(x => `<button class="chip" data-act="${act}" data-id="${esc(x)}" ${pressed(arr.includes(x))}>${x}</button>`).join('')}</div>`;
+    return `<section class="screen">
+      ${stepper(p, 'identite', q)}
+      <h1>Ton identité <em>de marque</em></h1>
+      <p class="lead">Donne vie à ta marque avec un nom, un slogan et les éléments qui te représentent.</p>
+      <div class="idp ${t.tex && ['grain','papier','beton'].includes(t.tex) ? 'tex-' + t.tex : ''}" style="background:${c.dark};color:${c.light}">
+        ${deco(p.visual.shapes[0], c.principale, c.accent)}
+        <p class="idp-act" id="idp-act" style="font-family:${t.fb}">${esc(id.activity || 'Ton activité')}</p>
+        <p class="idp-name" id="idp-name" style="font-family:${t.fd};font-weight:${t.pair.w};${up}">${nm}</p>
+        <p class="idp-slogan" id="idp-slogan" style="font-family:${t.fs}">${esc(id.slogan || 'Ton slogan ici')}</p>
+      </div>
+      <label class="field"><span>Nom de marque</span><input class="input" data-input="identity.name" data-live="idp-name" data-ph="Ta marque" value="${esc(id.name)}" maxlength="40" placeholder="Ex. RBL Digital" autocomplete="off"></label>
+      <label class="field"><span>Slogan <small>facultatif</small></span><input class="input" data-input="identity.slogan" data-live="idp-slogan" data-ph="Ton slogan ici" value="${esc(id.slogan)}" maxlength="80" placeholder="Ex. Crée. Impacte. Brille." autocomplete="off"></label>
+      <label class="field"><span>Ton activité <small>facultatif</small></span><input class="input" data-input="identity.activity" data-live="idp-act" data-ph="Ton activité" value="${esc(id.activity)}" maxlength="60" placeholder="Ex. Créatrice de contenu" autocomplete="off"></label>
+
+      <div class="sec-row"><h2 class="sec-t">Tes 3 mots</h2><span class="counter">${id.personality.length}/3</span></div>
+      <p class="sec-sub">Les mots marqués sont suggérés d’après tes choix.</p>
+      <div class="chips">${TRAITS.map(tr => `<button class="chip" data-act="trait" data-id="${esc(tr)}" ${pressed(id.personality.includes(tr))}>${tr}${sug.includes(tr) ? '<span class="sug">suggéré</span>' : ''}</button>`).join('')}</div>
+
+      <h2 class="sec-t">Éléments de marque</h2>
+      <p class="sec-sub">Ce que tu veux dans ton identité. Plusieurs choix possibles.</p>
+      <div class="opt3">${ELEMENTS.map(([k, l, d]) => `<button class="optcard" data-act="element" data-id="${k}" ${pressed((id.elements || []).includes(k))}><span class="oa">${elArt[k]}</span><b>${l}</b><small>${d}</small></button>`).join('')}</div>
+
+      <h2 class="sec-t">Style de logo</h2>
+      <div class="opt3">${LOGO_STYLES.map(([k, l, d]) => `<button class="optcard" data-act="logostyle" data-id="${k}" ${pressed(id.logoStyle === k)}><span class="oa logo-prev" style="background:${c.dark};color:${c.light}">${logoArt[k]}</span><b>${l}</b><small>${d}</small></button>`).join('')}</div>
+
+      <div class="posi-h"><h2 class="sec-t">Ton positionnement</h2><small class="opt">facultatif, mais ça rend ton Brand Board bien plus puissant</small></div>
+      <p class="field-l">À qui tu t’adresses ?</p>
+      ${chipList(TARGETS, id.targets || [], 'target', 2)}
+      <label class="field" style="margin-top:12px"><span>Précise ta cible <small>facultatif</small></span><input class="input" data-input="identity.audience" value="${esc(id.audience || '')}" maxlength="140" placeholder="Ex. les femmes actives de 25 à 40 ans qui lancent leur marque" autocomplete="off"></label>
+      <label class="field"><span>Le problème que tu résous</span><textarea class="input area" data-input="identity.problem" maxlength="280" placeholder="Ex. elles manquent de clarté et de confiance dans leur communication">${esc(id.problem || '')}</textarea></label>
+      <label class="field"><span>La transformation que tu promets</span><textarea class="input area" data-input="identity.transformation" maxlength="280" placeholder="Ex. une marque forte et alignée qui attire les bonnes opportunités">${esc(id.transformation || '')}</textarea></label>
+      <div class="sec-row"><p class="field-l">Tes super-pouvoirs</p><span class="counter">${(id.powers || []).length}/3</span></div>
+      ${chipList(POWERS, id.powers || [], 'power', 3)}
+      <div class="sec-row" style="margin-top:14px"><p class="field-l">Tes valeurs</p><span class="counter">${(id.values || []).length}/3</span></div>
+      ${chipList(VALUES, id.values || [], 'value', 3)}
+    </section>`;
+  },
+  bar(p, q){ return wizardBar(p, q, 'identite'); },
+};
+
+/* Export : modèle enrichi */
+Exporter.model = function(p){
+  const pal = Engine.pal(p), pair = Engine.pair(p), sub = Engine.sub(p), comp = Engine.composition(p), id = p.identity;
+  const lab = (list, ids) => (ids || []).map(x => (list.find(y => y.id === x) || {}).label).filter(Boolean);
+  const picked = p.colors.picked || [];
+  return {
+    schema: 'rbl-identity/brand@2', id: p.id,
+    marque: {nom: id.name, slogan: id.slogan, activite: id.activity, trois_mots: id.personality, super_pouvoirs: id.powers || [], valeurs: id.values || [], elements: id.elements || [], style_logo: id.logoStyle || null},
+    positionnement: {cible: [...(id.targets || []), id.audience].filter(Boolean), probleme: id.problem || '', transformation: id.transformation || ''},
+    couleurs: ROLES.map(([k, l]) => { const inf = colorInfo(pal[k]); return {role: l, hex: pal[k], rgb: hexToRgb(pal[k]), nom: picked.map(x => x.toUpperCase()).includes(pal[k].toUpperCase()) ? inf.name : null, sens: picked.map(x => x.toUpperCase()).includes(pal[k].toUpperCase()) ? inf.mean : null}; }),
+    typographies: pair ? {titres: pair.display, sous_titres: sub.name, textes: pair.body, titres_en_majuscules: Engine.upper(p)} : null,
+    mood: {univers: lab(UNIVERS, p.mood.univers), ambiances: lab(AMBIANCES, p.mood.ambiances), a_eviter: p.mood.avoid},
+    style_visuel: {images: lab(VISUALS.images.items, p.visual.images), icones: lab(VISUALS.icons.items, p.visual.icons), textures: lab(VISUALS.textures.items, p.visual.textures), formes: lab(VISUALS.shapes.items, p.visual.shapes)},
+    composition: comp ? comp.name : null,
+    mis_a_jour: new Date(p.updatedAt).toISOString(),
+  };
+};
 /* ---------- 8. Router + Actions ---------- */
 function parseRoute(){
   const h = location.hash.replace(/^#\/?/, ''), [path, qs] = h.split('?');
@@ -2090,6 +2527,9 @@ function toggleIn(arr, v, max){
   arr.push(v); return true;
 }
 function syncPalette(p){
+  const C = p.colors;
+  if (C.picked && C.picked.length){ if (!C.mode) C.mode = Engine.defaultMode(C.picked); C.palette = {...Engine.buildPalette(C.picked, C.mode), ...(C.custom || {})}; C.variant = 'picked'; return; }
+  if (!(C.energies || []).length){ C.palette = null; C.variant = null; C.custom = {}; return; }
   const pals = Engine.palettes(p.colors.energies, p.colors.shift || 0);
   if (!pals.length){ p.colors.variant = null; p.colors.palette = null; p.colors.custom = {}; return; }
   const v = pals.find(x => x.id === p.colors.variant) || pals[0];
@@ -2225,6 +2665,46 @@ const Actions = {
     clearTimeout(Actions._delT); Actions._delT = setTimeout(() => { if (App.pendingDel === d.id){ App.pendingDel = null; if (App.view === Screens.projets) App.refresh(); } }, 4000);
   },
 };
+
+/* Actions du lot 2 */
+Object.assign(Actions, {
+  tab(d){ App[d.group] = d.id; App.editRole = null; App.refresh(); const t = $('.tabs2'); if (t && t.getBoundingClientRect().top < 60) t.scrollIntoView({block: 'start'}); },
+  pickcolor(d){
+    App.pulse = 'pal'; App.editRole = null;
+    Store.update(p => {
+      const C = p.colors; C.picked = C.picked || [];
+      if (toggleIn(C.picked, d.hex, 5)){ C.custom = {}; if (!C.picked.length) C.mode = null; else if (!C.mode) C.mode = Engine.defaultMode(C.picked); syncPalette(p); }
+    });
+  },
+  colmode(d){ App.pulse = 'pal'; Store.update(p => { p.colors.mode = d.id; p.colors.custom = {}; syncPalette(p); }); },
+  moodpick(d){ App.pulse = 'mood'; Store.update(p => { p.mood[d.group] = p.mood[d.group] || []; toggleIn(p.mood[d.group], d.id, 2); deriveMoods(p); }); },
+  fontpick(d){ App.pulse = 'type'; Store.update(p => { const T = p.typography; T[d.slot] = T[d.slot] === d.id && d.slot === 'sous' ? null : d.id; }); },
+  element(d){ Store.update(p => { p.identity.elements = p.identity.elements || []; toggleIn(p.identity.elements, d.id, 3); }); },
+  logostyle(d){ Store.update(p => { p.identity.logoStyle = p.identity.logoStyle === d.id ? null : d.id; }); },
+  target(d){ Store.update(p => { p.identity.targets = p.identity.targets || []; toggleIn(p.identity.targets, d.id, 2); }); },
+  power(d){ Store.update(p => { p.identity.powers = p.identity.powers || []; toggleIn(p.identity.powers, d.id, 3); }); },
+  value(d){ Store.update(p => { p.identity.values = p.identity.values || []; toggleIn(p.identity.values, d.id, 3); }); },
+  trait(d){ Store.update(p => toggleIn(p.identity.personality, d.id, 3)); },
+  visual(d){
+    App.pulse = 'vis';
+    Store.update(p => {
+      const max = VISUALS[d.group].max; p.visual[d.group] = p.visual[d.group] || [];
+      if (max === 1) p.visual[d.group] = p.visual[d.group][0] === d.id ? [] : [d.id];
+      else toggleIn(p.visual[d.group], d.id, max);
+    });
+  },
+});
+document.addEventListener('change', e => {
+  const t = e.target.closest('[data-addcolor]'); if (!t || !App.p) return;
+  const h = t.value.toUpperCase();
+  App.pulse = 'pal';
+  Store.update(p => {
+    const C = p.colors; C.extra = C.extra || []; C.picked = C.picked || [];
+    if (!C.extra.includes(h)) C.extra.push(h);
+    if (!C.picked.includes(h)){ if (C.picked.length >= 5){ toast('5 couleurs maximum : retire-en une d’abord'); return; } C.picked.push(h); }
+    C.custom = {}; if (!C.mode) C.mode = Engine.defaultMode(C.picked); syncPalette(p);
+  });
+});
 
 document.addEventListener('click', e => {
   const sent = e.target.closest('[data-sent]');
