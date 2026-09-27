@@ -747,6 +747,9 @@ a.row{text-decoration:none;color:var(--text)}
 .stage.print .bb-card{height:100%}
 .stage.print .bb-portrait{align-self:stretch}
 
+/* Textes ajustés : jamais de mot coupé */
+.bp-hero h1,.bb-quote,.lg .wm,.mock-card b,.m-banner b,.mock-story h4,.mock-post h4,.bag-body b,.sig b,.idp-name,.lang-t,.poster h3,.m-hero h4,.hier .h1,.pp-name,.typo-prev .spec-d,.bb-glance h2{word-break:normal !important;overflow-wrap:normal !important;hyphens:none;min-width:0;max-width:100%}
+
 /* Toast */
 .toast{position:fixed;left:50%;bottom:calc(120px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:11px 16px;border-radius:999px;font-weight:700;font-size:13.5px;opacity:0;pointer-events:none;transition:all .25s var(--ease);z-index:50;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -1212,7 +1215,7 @@ Screens.profil = {
         <button class="row" data-act="logout"><span class="thumb ic">${svg('<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/>')}</span><span><b>Se déconnecter</b></span><em></em></button>
       </div>
       <p class="sign">by Lyliie RBL Digital</p>
-      <p class="fine" style="text-align:center">Version 3.2</p>
+      <p class="fine" style="text-align:center">Version 3.3</p>
     </section>`;
   },
 };
@@ -2639,11 +2642,28 @@ async function stageBrand(p, opts = {}){
   await Promise.all([...new Set(srcs)].map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; })));
   try { await document.fonts.ready; } catch(e){}
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-  fixSvgs(host);
+  fitAll(host);
+  await svgToImg(host);
   return host;
 }
-function fixSvgs(root){
-  root.querySelectorAll('svg').forEach(sv => { const r = sv.getBoundingClientRect(); if (r.width && r.height){ sv.setAttribute('width', Math.round(r.width)); sv.setAttribute('height', Math.round(r.height)); } });
+/* Les SVG sont convertis en images avant la capture : l’outil de PDF les rend alors fidèlement */
+async function svgToImg(root){
+  const imgs = [];
+  root.querySelectorAll('svg').forEach(sv => {
+    const r = sv.getBoundingClientRect(); if (!r.width || !r.height) return;
+    const cl = sv.cloneNode(true);
+    cl.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    cl.setAttribute('width', Math.round(r.width)); cl.setAttribute('height', Math.round(r.height));
+    cl.removeAttribute('style'); cl.removeAttribute('class');
+    const str = new XMLSerializer().serializeToString(cl).replace(/currentColor/g, getComputedStyle(sv).color);
+    const img = document.createElement('img');
+    img.className = sv.getAttribute('class') || '';
+    img.setAttribute('style', sv.getAttribute('style') || '');
+    img.style.width = r.width + 'px'; img.style.height = r.height + 'px'; img.style.maxWidth = 'none';
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(str);
+    sv.replaceWith(img); imgs.push(img);
+  });
+  await Promise.all(imgs.map(i => i.decode ? i.decode().catch(() => {}) : Promise.resolve()));
 }
 Exporter.pdf = async function(p, set){
   const jsPDF = window.jspdf && window.jspdf.jsPDF;
@@ -2668,7 +2688,7 @@ Exporter.pdf = async function(p, set){
     host.appendChild(p2);
     host.querySelectorAll('.bp-doc #bp-logo, .bp-doc #bp-supports, .bp-doc .bb-sep').forEach(el => el.remove());
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-    fixSvgs(p2);
+    fitAll(p2); await svgToImg(p2);
 
     const pdf = new jsPDF({unit:'mm', format:'a4', orientation:'portrait', compress:true});
     const PW = 210, PH = 297, M = 8;
@@ -2691,6 +2711,19 @@ Exporter.pdf = async function(p, set){
     return {filename: `${slug(p.identity.name)}-brand-board.pdf`, data: pdf.output('blob')};
   } finally { host.remove(); }
 };
+
+/* Le nom et les titres s’adaptent pour ne jamais couper un mot */
+const FIT_SEL = '.bp-hero h1, .bb-quote, .lg .wm, .mock-card b, .m-banner b, .mock-story h4, .mock-post h4, .bag-body b, .sig b, .idp-name, .lang-t, .poster h3, .m-hero h4, .hier .h1, .pp-name, .typo-prev .spec-d, .bb-glance h2';
+function fitAll(root){
+  (root || document).querySelectorAll(FIT_SEL).forEach(el => {
+    el.style.fontSize = '';
+    let fs = parseFloat(getComputedStyle(el).fontSize), guard = 0;
+    while (el.scrollWidth > el.clientWidth + 1 && fs > 9 && guard++ < 60){ fs -= Math.max(1, fs * .06); el.style.fontSize = fs + 'px'; }
+  });
+}
+let fitT = null;
+window.addEventListener('resize', () => { clearTimeout(fitT); fitT = setTimeout(() => fitAll($('#main')), 150); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => fitAll($('#main')));
 
 /* ---------- 8. Router + Actions ---------- */
 function parseRoute(){
@@ -2740,6 +2773,7 @@ const App = {
     document.title = `${view.title} | RBL Identity`;
     view.after && view.after(p, q);
     this.pulse = null;
+    requestAnimationFrame(() => fitAll(main));
   },
   renderBar(){
     const html = this.view.bar ? this.view.bar(this.p, this.q) : '';
