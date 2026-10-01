@@ -750,6 +750,34 @@ a.row{text-decoration:none;color:var(--text)}
 /* Textes ajustés : jamais de mot coupé */
 .bp-hero h1,.bb-quote,.lg .wm,.mock-card b,.m-banner b,.mock-story h4,.mock-post h4,.bag-body b,.sig b,.idp-name,.lang-t,.poster h3,.m-hero h4,.hier .h1,.pp-name,.typo-prev .spec-d,.bb-glance h2{word-break:normal !important;overflow-wrap:normal !important;hyphens:none;min-width:0;max-width:100%}
 
+/* ===== Lot 4 : studio ===== */
+.studio-cta{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;text-align:left;width:100%;background:linear-gradient(135deg,#140709,#0b0b0b);border:1.5px solid var(--red);border-radius:18px;padding:16px;margin-bottom:12px;color:#fff;cursor:pointer;box-shadow:0 10px 26px -14px rgba(var(--red-rgb),.9)}
+.studio-cta span{grid-row:span 2;font-size:28px}
+.studio-cta b{font-family:var(--ff-d);font-size:20px;letter-spacing:.03em;text-transform:uppercase}
+.studio-cta small{color:#bbb;font-size:13px}
+.prem-card{background:#140709;border:1px solid rgba(var(--red-rgb),.6);border-radius:16px;padding:14px 16px;margin:0 0 16px}
+.prem-card b{display:block;font-size:15px}
+.prem-card p{margin:4px 0 10px;font-size:13.5px;color:#cfcfcf;line-height:1.45}
+.prem-card.admin{margin-top:16px}
+.prem-tag{font-family:var(--ff-b);font-size:12px;vertical-align:middle;background:var(--red);color:var(--on-red);border-radius:999px;padding:3px 9px;letter-spacing:0;text-transform:none}
+.tpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.tpl-card{position:relative;background:none;border:0;padding:0;color:#fff;text-align:left;cursor:pointer}
+.tpl-card .tpl-frame{border-radius:12px;box-shadow:0 0 0 1px #262626}
+.tpl-card:active .tpl-frame{transform:scale(.98)}
+.tpl-name{display:block;font-weight:800;font-size:13.5px;margin-top:7px}
+.tpl-card small{color:var(--muted);font-size:12px}
+.tpl-lock{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.75);border:1px solid rgba(var(--red-rgb),.8);display:flex;align-items:center;justify-content:center;font-size:15px}
+.tpl-frame{position:relative;overflow:hidden;width:100%;background:#111}
+.tpl-root{position:absolute;top:0;left:0;transform-origin:0 0;overflow:hidden}
+.tpl-root .deco{display:block;width:100%;height:100%}
+.tpl-img{background-size:cover;background-position:center;background-repeat:no-repeat}
+.tpl-edit-prev{position:relative;max-width:420px;margin:14px auto 18px}
+.tpl-edit-prev .tpl-frame{border-radius:14px;box-shadow:0 0 0 1px #262626,0 18px 40px -20px rgba(var(--red-rgb),.6)}
+.tpl-wm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-12deg);background:rgba(0,0,0,.7);color:#fff;font-weight:800;padding:8px 16px;border-radius:999px;font-size:14px;white-space:nowrap;border:1px solid rgba(var(--red-rgb),.8);pointer-events:none}
+.bg-sw{display:flex;gap:10px;flex-wrap:wrap}
+.bgdot{width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.bgdot[aria-pressed="true"]{box-shadow:0 0 0 2px #050505,0 0 0 4px var(--red)}
+
 /* Toast */
 .toast{position:fixed;left:50%;bottom:calc(120px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:11px 16px;border-radius:999px;font-weight:700;font-size:13.5px;opacity:0;pointer-events:none;transition:all .25s var(--ease);z-index:50;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -1215,7 +1243,7 @@ Screens.profil = {
         <button class="row" data-act="logout"><span class="thumb ic">${svg('<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/>')}</span><span><b>Se déconnecter</b></span><em></em></button>
       </div>
       <p class="sign">by Lyliie RBL Digital</p>
-      <p class="fine" style="text-align:center">Version 3.4</p>
+      <p class="fine" style="text-align:center">Version 4.0</p>
     </section>`;
   },
 };
@@ -1671,7 +1699,8 @@ Screens.brand = {
           </div>` : ''}
         </section>
       </article>
-      <div class="bb-end"><button class="btn btn-red btn-block btn-cta" data-act="nav" data-to="p/${p.id}/export">Télécharger mon Brand Board</button><button class="mini-btn" data-act="nav" data-to="" style="display:block;margin:12px auto 0">Retour à l’accueil</button></div>
+      <div class="bb-end"><button class="studio-cta" data-act="nav" data-to="p/${p.id}/studio"><span>✨</span><b>Ouvre ton studio</b><small>Des templates à ton image, prêts à publier</small></button><button class="btn btn-red btn-block btn-cta" data-act="nav" data-to="p/${p.id}/export">Télécharger mon Brand Board</button><button class="mini-btn" data-act="nav" data-to="" style="display:block;margin:12px auto 0">Retour à l’accueil</button></div>
+      ${!isOwner && Auth.isAdmin && adminRow ? (() => { const pl = (adminRow.profiles && adminRow.profiles.plan) || 'free'; return `<div class="prem-card admin"><b>👑 Templates premium de ${esc(clientName)}</b><p>${pl === 'premium' ? 'Activés : elle a accès à toute la collection.' : 'Pas encore activés.'}</p><button class="btn ${pl === 'premium' ? 'btn-ghost' : 'btn-red'} btn-sm" data-act="setplan" data-id="${adminRow.owner_id}" data-plan="${pl === 'premium' ? 'free' : 'premium'}">${pl === 'premium' ? 'Retirer le premium' : 'Activer le premium'}</button></div>`; })() : ''}
       ${isOwner && p.generatedAt ? (p.validatedAt
         ? `<div class="valid-ok">✓ Brand Page validée le ${new Date(p.validatedAt).toLocaleDateString('fr-FR', {day: 'numeric', month: 'long'})}</div>`
         : `<div class="validate-card"><b>Tout te plaît ?</b><p>Valide ta Brand Page pour que Lyliie puisse finaliser ton identité.</p><button class="btn btn-dark btn-block" data-act="validate">${App.confirmValidate ? 'Oui, je confirme ma validation' : 'Je valide ma Brand Page'}</button></div>`) : ''}
@@ -2207,7 +2236,7 @@ Screens.admin = {
         const who = r.profiles ? (r.profiles.full_name || r.profiles.email) : 'Cliente';
         return `<button class="row" data-act="nav" data-to="p/${r.id}/brand">
           <span class="thumb"><span class="mini-pal" style="width:56px;height:56px">${ROLES.map(([k]) => `<i style="background:${pal[k]}"></i>`).join('')}</span></span>
-          <span style="min-width:0"><b>${esc(r.name || 'Projet sans nom')}</b><small>${esc(who)}<br>${STATUS_LABEL[r.status] || r.status}, ${new Date(r.updated_at).toLocaleDateString('fr-FR', {day: 'numeric', month: 'short'})}</small></span>
+          <span style="min-width:0"><b>${esc(r.name || 'Projet sans nom')}${r.profiles && r.profiles.plan === 'premium' ? ' 👑' : ''}</b><small>${esc(who)}<br>${STATUS_LABEL[r.status] || r.status}, ${new Date(r.updated_at).toLocaleDateString('fr-FR', {day: 'numeric', month: 'short'})}</small></span>
           ${u ? `<em class="unread-badge">${u}</em>` : `<em>Ouvrir</em>`}
         </button>`; }).join('')}</div>`
       : `<p class="empty-s">${f === 'traiter' ? 'Rien à traiter pour l’instant. 👑' : 'Aucun projet ici.'}</p>`}
@@ -2217,10 +2246,11 @@ Screens.admin = {
   async after(){
     if (!Auth.isAdmin || App.adminData || App.adminLoading) return;
     App.adminLoading = true;
-    const [a, b] = await Promise.all([
-      sb.from('projects').select('id,name,status,updated_at,owner_id,data,profiles(email,full_name)').order('updated_at', {ascending: false}),
+    const [a0, b] = await Promise.all([
+      sb.from('projects').select('id,name,status,updated_at,owner_id,data,profiles(email,full_name,plan)').order('updated_at', {ascending: false}),
       sb.from('comments').select('project_id').is('read_at', null).neq('author_id', Auth.user.id),
     ]);
+    const a = a0.error ? await sb.from('projects').select('id,name,status,updated_at,owner_id,data,profiles(email,full_name)').order('updated_at', {ascending: false}) : a0;
     App.adminLoading = false;
     if (a.error || b.error){ console.error(a.error || b.error); toast('Chargement impossible'); return; }
     const unread = {}; (b.data || []).forEach(c => { unread[c.project_id] = (unread[c.project_id] || 0) + 1; });
@@ -2716,7 +2746,8 @@ Exporter.pdf = async function(p, set){
 const FIT_SEL = '.bp-hero h1, .bb-quote, .lg .wm, .mock-card b, .m-banner b, .mock-story h4, .mock-post h4, .bag-body b, .sig b, .idp-name, .lang-t, .poster h3, .m-hero h4, .hier .h1, .pp-name, .typo-prev .spec-d, .bb-glance h2';
 function fitAll(root){
   (root || document).querySelectorAll(FIT_SEL).forEach(el => {
-    el.style.fontSize = '';
+    if (el.dataset.fs0 == null) el.dataset.fs0 = el.style.fontSize || '';
+    el.style.fontSize = el.dataset.fs0;
     let fs = parseFloat(getComputedStyle(el).fontSize), guard = 0;
     while (el.scrollWidth > el.clientWidth + 1 && fs > 9 && guard++ < 60){ fs -= Math.max(1, fs * .06); el.style.fontSize = fs + 'px'; }
   });
@@ -2790,6 +2821,287 @@ const App = {
     if (fid){ const el = document.getElementById(fid); if (el){ el.focus({preventScroll: true}); try { if (sel) el.setSelectionRange(sel[0], sel[1]); } catch(e){} } }
   },
 };
+
+/* ===================== LOT 4 : Ton studio (templates) ===================== */
+const PREMIUM_URL = ''; // lien Beacons du pack premium (à renseigner plus tard)
+const isPremium = () => !!(Auth.isAdmin || (Auth.profile && Auth.profile.plan === 'premium'));
+const STUDIO_CATS = [['posts', 'Posts'], ['stories', 'Stories'], ['carrousels', 'Carrousels'], ['couvertures', 'Couvertures']];
+const BG_ROLES = [['principale', 'Principale'], ['dark', 'Foncée'], ['fond', 'Fond'], ['secondaire', 'Secondaire'], ['accent', 'Accent']];
+
+const qf = s => String(s || '').replace(/"/g, "'");
+function tplCtx(p, tpl){
+  const t = Engine.tokens(p), c = t.c, id = p.identity;
+  const S = (p.studio = p.studio || {vals: {}, bg: {}});
+  const bgRole = S.bg[tpl.id] || tpl.bg;
+  const bg = c[bgRole] || c.principale;
+  const fg = contrast(c.light, bg) >= contrast(c.dark, bg) ? c.light : c.dark;
+  const fgOk = contrast(fg, bg) >= 4 ? fg : onColor(bg);
+  const acc = [c.principale, c.accent, c.secondaire, c.light, c.dark].filter(x => x.toUpperCase() !== bg.toUpperCase()).find(x => contrast(x, bg) >= 2.4) || fgOk;
+  const v = {}; (tpl.fields || []).forEach(f => { const sv = (S.vals[tpl.id] || {})[f.k]; v[f.k] = sv != null && sv !== '' ? sv : f.def(p); });
+  const chosenImgs = p.visual.images.map(i => (VISUALS.images.items.find(x => x.id === i) || {}).img).filter(Boolean);
+  const univImg = ((p.mood.univers || []).map(x => UNIVERS.find(u => u.id === x)).filter(Boolean)[0] || {}).img;
+  const photo = App.studioPhoto || chosenImgs.find(x => x.startsWith('photo-')) || chosenImgs[0] || univImg || 'univers-moderne.webp';
+  const texId = p.visual.textures[0] || 'grain', tex = `texture-${texId}.webp`;
+  const up = t.upper ? 'text-transform:uppercase;' : '';
+  return {p, t, c, v, bg, fg: fgOk, acc, photo, tex, up, shape: p.visual.shapes[0] || 'organiques', handle: '@' + slug(id.name),
+    fd: `font-family:${qf(t.fd)};font-weight:${t.pair.w};${up}line-height:1.02;`, fs: `font-family:${qf(t.fs)};font-weight:${t.sw};`, fb: `font-family:${qf(t.fb)};`};
+}
+const tDeco = (x, css, col, col2) => `<div style="position:absolute;${css}">${deco(x.shape, col || x.acc, col2)}</div>`;
+const tImg = (src, css) => `<div class="tpl-img" style="position:absolute;${css};background-image:url('${src}')"></div>`;
+const esc2 = s => esc(s).replace(/\n/g, '<br>');
+
+const TEMPLATES = [
+  /* ---------- Gratuits ---------- */
+  {id:'annonce', cat:'posts', name:'Annonce', w:540, h:540, bg:'principale', fields:[
+    {k:'titre', l:'Titre', def: p => p.identity.slogan || 'Ose être toi'},
+    {k:'texte', l:'Texte', def: () => 'Ta marque, c’est toi.'}],
+   render: x => `${tDeco(x, 'right:-40px;top:-40px;width:230px;height:230px', x.acc)}
+    <div style="position:absolute;left:44px;top:40px;${x.fb}font-size:17px;opacity:.85">${esc(x.handle)}</div>
+    <div style="position:absolute;left:44px;right:44px;bottom:44px">
+      <div data-fit style="${x.fd}font-size:66px">${esc2(x.v.titre)}</div>
+      <div style="${x.fs}font-size:22px;margin-top:14px;opacity:.9">${esc2(x.v.texte)}</div></div>`},
+  {id:'citation', cat:'posts', name:'Citation', w:540, h:540, bg:'fond', fields:[
+    {k:'citation', l:'Citation', def: () => 'Sois toi. Vraiment toi.'},
+    {k:'auteur', l:'Signature', def: p => p.identity.name || 'Ma marque'}],
+   render: x => `<div style="position:absolute;left:44px;top:10px;${x.fd}font-size:200px;color:${x.acc};line-height:1;text-transform:none">“</div>
+    <div style="position:absolute;left:48px;right:48px;top:170px">
+      <div style="${x.fd}font-size:48px">${esc2(x.v.citation)}</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:26px;${x.fb}font-size:18px"><span style="width:40px;height:4px;border-radius:4px;background:${x.acc}"></span>${esc(x.v.auteur)}</div></div>`},
+  {id:'story', cat:'stories', name:'Story texte', w:540, h:960, bg:'dark', fields:[
+    {k:'titre', l:'Titre', def: () => 'Nouveau chapitre'},
+    {k:'texte', l:'Texte', def: p => p.identity.slogan || 'Je t’explique tout en story.'},
+    {k:'cta', l:'Bouton', def: () => 'Découvrir'}],
+   render: x => `${tDeco(x, 'right:-50px;top:120px;width:220px;height:220px', x.acc)}
+    <div style="position:absolute;left:50px;right:50px;top:400px">
+      <div data-fit style="${x.fd}font-size:72px">${esc2(x.v.titre)}</div>
+      <div style="${x.fs}font-size:24px;margin-top:18px;opacity:.9">${esc2(x.v.texte)}</div>
+      <div style="display:inline-block;margin-top:34px;background:${x.acc};color:${onColor(x.acc)};${x.fb}font-weight:700;font-size:22px;padding:16px 30px;border-radius:999px">${esc(x.v.cta)}</div></div>
+    <div style="position:absolute;left:50px;bottom:60px;${x.fb}font-size:18px;opacity:.75">${esc(x.handle)}</div>`},
+  {id:'conseils', cat:'carrousels', name:'3 conseils', w:540, h:675, bg:'dark', fields:[
+    {k:'titre', l:'Titre', def: () => '3 conseils pour une marque forte'},
+    {k:'c1', l:'Conseil 1', def: () => 'Choisis 3 couleurs et tiens-toi à elles'},
+    {k:'c2', l:'Conseil 2', def: () => 'Garde les mêmes typos partout'},
+    {k:'c3', l:'Conseil 3', def: () => 'Montre ton visage, souvent'}],
+   render: x => `<div style="position:absolute;left:44px;right:44px;top:50px">
+      <div style="${x.fd}font-size:44px">${esc2(x.v.titre)}</div>
+      ${['c1','c2','c3'].map((k, i) => `<div style="display:flex;gap:18px;align-items:flex-start;margin-top:${i ? 26 : 40}px">
+        <span style="${x.fd}font-size:44px;color:${x.acc};min-width:58px">0${i + 1}</span>
+        <span style="${x.fs}font-size:22px;line-height:1.3;padding-top:6px">${esc2(x.v[k])}</span></div>`).join('')}</div>
+    <div style="position:absolute;left:44px;bottom:36px;${x.fb}font-size:16px;opacity:.7">${esc(x.handle)}</div>`},
+  {id:'alaune', cat:'couvertures', name:'Story à la une', w:540, h:540, bg:'principale', fields:[
+    {k:'label', l:'Mot', def: () => 'Avis'}],
+   render: x => `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px">
+      ${iconSvg((x.p.visual.icons || [])[0] === 'rond' ? 'plein' : ((x.p.visual.icons || [])[0] || 'trait'), ICON_GLYPHS[1], {principale: x.fg, secondaire: x.acc}, 170)}
+      <div data-fit style="${x.fd}font-size:46px;max-width:440px;text-align:center">${esc(x.v.label)}</div></div>`},
+
+  /* ---------- Premium ---------- */
+  {id:'photo', cat:'posts', name:'Photo + titre', premium:true, photo:true, w:540, h:675, bg:'dark', fields:[
+    {k:'titre', l:'Titre', def: () => 'Mon histoire'},
+    {k:'texte', l:'Sous-titre', def: () => 'Épisode 1'}],
+   render: x => `${tImg(x.photo, 'inset:0')}
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,${rgba(x.bg, .92)} 18%,${rgba(x.bg, 0)} 62%)"></div>
+    ${tDeco(x, 'right:-36px;top:-36px;width:170px;height:170px', x.acc)}
+    <div style="position:absolute;left:40px;right:40px;bottom:46px">
+      <div style="${x.fs}font-size:20px;color:${x.acc};margin-bottom:8px">${esc(x.v.texte)}</div>
+      <div data-fit style="${x.fd}font-size:64px">${esc2(x.v.titre)}</div>
+      <div style="${x.fb}font-size:16px;opacity:.75;margin-top:14px">${esc(x.handle)}</div></div>`},
+  {id:'promo', cat:'posts', name:'Promo', premium:true, w:540, h:540, bg:'dark', fields:[
+    {k:'chiffre', l:'Gros chiffre', def: () => '-20%'},
+    {k:'titre', l:'Titre', def: () => 'Ce week-end seulement'},
+    {k:'texte', l:'Texte', def: () => 'Code REBELLE'}],
+   render: x => `${tImg(x.tex, 'inset:0;opacity:.18')}
+    ${tDeco(x, 'left:-60px;bottom:-60px;width:220px;height:220px', x.acc)}
+    ${tDeco(x, 'right:-30px;top:-30px;width:130px;height:130px', x.fg)}
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px">
+      <div data-fit style="${x.fd}font-size:150px;color:${x.acc};max-width:460px">${esc(x.v.chiffre)}</div>
+      <div style="${x.fd}font-size:38px;margin-top:10px">${esc2(x.v.titre)}</div>
+      <div style="${x.fb}font-size:20px;margin-top:16px;border:2px dashed ${x.fg};padding:8px 18px;border-radius:10px">${esc(x.v.texte)}</div></div>`},
+  {id:'temoignage', cat:'posts', name:'Témoignage', premium:true, w:540, h:540, bg:'fond', fields:[
+    {k:'avis', l:'Avis', def: () => 'Grâce à elle, j’ai enfin une marque qui me ressemble. Je me sens fière de la montrer !'},
+    {k:'nom', l:'Prénom', def: () => 'Sarah, créatrice'}],
+   render: x => `<div style="position:absolute;left:36px;right:36px;top:44px;bottom:44px;border-radius:26px;background:${rgba(x.acc, .12)};padding:40px 36px">
+      <div style="font-size:34px;color:${x.acc};letter-spacing:6px">★★★★★</div>
+      <div style="${x.fs}font-size:27px;line-height:1.35;margin-top:22px">« ${esc2(x.v.avis)} »</div>
+      <div style="${x.fd}font-size:24px;margin-top:24px;color:${x.acc}">${esc(x.v.nom)}</div></div>
+    <div style="position:absolute;right:52px;bottom:18px;${x.fb}font-size:14px;opacity:.6">${esc(x.handle)}</div>`},
+  {id:'texture', cat:'posts', name:'Citation texturée', premium:true, w:540, h:540, bg:'principale', fields:[
+    {k:'citation', l:'Citation', def: () => 'Les copies passent inaperçues. Les rebelles, on les remarque.'}],
+   render: x => `${tImg(x.tex, 'inset:0')}
+    <div style="position:absolute;left:54px;right:54px;top:50%;transform:translateY(-50%);background:${x.bg};border-radius:${Math.min(x.t.radius * 2, 28)}px;padding:42px 36px;text-align:center">
+      <div style="${x.fd}font-size:38px">${esc2(x.v.citation)}</div>
+      <div style="width:60px;height:4px;border-radius:4px;background:${x.acc};margin:22px auto 0"></div>
+      <div style="${x.fb}font-size:16px;margin-top:14px;opacity:.75">${esc(x.handle)}</div></div>`},
+  {id:'storyphoto', cat:'stories', name:'Story photo', premium:true, photo:true, w:540, h:960, bg:'dark', fields:[
+    {k:'titre', l:'Titre', def: () => 'Dans les coulisses'},
+    {k:'texte', l:'Texte', def: () => 'Viens voir comment je travaille'},
+    {k:'cta', l:'Bouton', def: () => 'En savoir plus'}],
+   render: x => `${tImg(x.photo, 'left:0;right:0;top:0;height:580px;border-radius:0 0 46px 46px')}
+    ${tDeco(x, 'right:-40px;top:500px;width:170px;height:170px', x.acc)}
+    <div style="position:absolute;left:46px;right:46px;top:630px">
+      <div data-fit style="${x.fd}font-size:58px">${esc2(x.v.titre)}</div>
+      <div style="${x.fs}font-size:22px;margin-top:14px;opacity:.9">${esc2(x.v.texte)}</div>
+      <div style="display:inline-block;margin-top:26px;background:${x.acc};color:${onColor(x.acc)};${x.fb}font-weight:700;font-size:20px;padding:14px 28px;border-radius:999px">${esc(x.v.cta)}</div></div>`},
+  {id:'carrou1', cat:'carrousels', name:'Carrousel : couverture', premium:true, w:540, h:675, bg:'principale', fields:[
+    {k:'titre', l:'Titre', def: () => '5 erreurs qui freinent ta marque'},
+    {k:'texte', l:'Accroche', def: () => 'La 3e va te surprendre'}],
+   render: x => `${tDeco(x, 'right:-70px;bottom:-70px;width:330px;height:330px', x.acc)}
+    <div style="position:absolute;left:44px;top:40px;${x.fb}font-size:17px;opacity:.85">${esc(x.handle)}</div>
+    <div style="position:absolute;right:44px;top:40px;${x.fb}font-size:17px;opacity:.85">1/5</div>
+    <div style="position:absolute;left:44px;right:44px;top:150px">
+      <div style="${x.fd}font-size:64px">${esc2(x.v.titre)}</div>
+      <div style="${x.fs}font-size:22px;margin-top:18px">${esc2(x.v.texte)}</div></div>
+    <div style="position:absolute;left:44px;bottom:44px;${x.fb}font-weight:700;font-size:20px;background:${x.fg};color:${x.bg};padding:12px 22px;border-radius:999px">Glisse →</div>`},
+  {id:'carrou2', cat:'carrousels', name:'Carrousel : slide', premium:true, w:540, h:675, bg:'fond', fields:[
+    {k:'num', l:'Numéro', def: () => '01'},
+    {k:'titre', l:'Titre', def: () => 'Changer de couleurs tout le temps'},
+    {k:'texte', l:'Texte', def: () => 'Ta cliente doit te reconnaître en un coup d’œil. Choisis ta palette et garde-la.'}],
+   render: x => `<div style="position:absolute;left:44px;top:44px;${x.fd}font-size:120px;color:${x.acc}">${esc(x.v.num)}</div>
+    <div style="position:absolute;left:44px;right:44px;top:230px">
+      <div style="${x.fd}font-size:44px">${esc2(x.v.titre)}</div>
+      <div style="${x.fb}font-size:22px;line-height:1.45;margin-top:20px;opacity:.85">${esc2(x.v.texte)}</div></div>
+    <div style="position:absolute;left:44px;bottom:44px;display:flex;gap:8px">${[0,1,2,3,4].map(i => `<span style="width:${i === 1 ? 26 : 10}px;height:10px;border-radius:6px;background:${i === 1 ? x.acc : rgba(x.fg, .25)}"></span>`).join('')}</div>
+    <div style="position:absolute;right:44px;bottom:38px;${x.fb}font-size:16px;opacity:.6">${esc(x.handle)}</div>`},
+  {id:'avantapres', cat:'carrousels', name:'Avant / après', premium:true, w:540, h:675, bg:'principale', fields:[
+    {k:'titre', l:'Titre', def: () => 'Ma transformation'},
+    {k:'avant', l:'Avant', def: p => p.identity.problem || 'Pas de cohérence, pas de visibilité'},
+    {k:'apres', l:'Après', def: p => p.identity.transformation || 'Une marque forte qui attire les bonnes clientes'}],
+   render: x => { const c = x.c, a = contrast(c.dark, c.fond) >= 3 ? c.dark : onColor(c.fond); return `
+    <div style="position:absolute;left:0;right:0;top:0;height:150px;display:flex;align-items:center;padding:0 40px"><div data-fit style="${x.fd}font-size:48px">${esc2(x.v.titre)}</div></div>
+    <div style="position:absolute;left:24px;top:150px;width:236px;bottom:24px;border-radius:22px;background:${c.fond};color:${a};padding:28px 22px">
+      <div style="${x.fd}font-size:34px;opacity:.55">Avant</div><div style="${x.fb}font-size:21px;line-height:1.4;margin-top:16px">${esc2(x.v.avant)}</div></div>
+    <div style="position:absolute;right:24px;top:150px;width:236px;bottom:24px;border-radius:22px;background:${c.dark};color:${c.light};padding:28px 22px">
+      <div style="${x.fd}font-size:34px;color:${contrast(c.principale, c.dark) >= 2.4 ? c.principale : c.accent}">Après</div><div style="${x.fb}font-size:21px;line-height:1.4;margin-top:16px">${esc2(x.v.apres)}</div></div>`; }},
+  {id:'youtube', cat:'couvertures', name:'Miniature YouTube', premium:true, photo:true, w:640, h:360, bg:'dark', fields:[
+    {k:'titre', l:'Titre', def: () => 'Crée ta marque en 7 jours'}],
+   render: x => `${tImg(x.photo, 'right:0;top:0;bottom:0;width:300px')}
+    <div style="position:absolute;right:270px;top:0;bottom:0;width:80px;background:linear-gradient(to right,${x.bg},${rgba(x.bg, 0)})"></div>
+    ${tDeco(x, 'left:-40px;bottom:-50px;width:150px;height:150px', x.acc)}
+    <div style="position:absolute;left:36px;top:50%;transform:translateY(-50%);width:330px">
+      <div style="${x.fd}font-size:56px">${esc2(x.v.titre)}</div>
+      <div style="width:90px;height:8px;border-radius:6px;background:${x.acc};margin-top:16px"></div></div>`},
+  {id:'linkedin', cat:'couvertures', name:'Bannière LinkedIn', premium:true, w:792, h:198, bg:'dark', fields:[
+    {k:'titre', l:'Titre', def: p => p.identity.name || 'Ma marque'},
+    {k:'texte', l:'Accroche', def: p => p.identity.slogan || p.identity.activity || 'Ton accroche ici'}],
+   render: x => `${tDeco(x, 'right:30px;top:-40px;width:200px;height:200px', x.acc)}
+    ${tDeco(x, 'right:190px;bottom:-60px;width:110px;height:110px', rgba(x.fg, .25))}
+    <div style="position:absolute;left:260px;right:300px;top:50%;transform:translateY(-50%)">
+      <div data-fit style="${x.fd}font-size:40px">${esc(x.v.titre)}</div>
+      <div style="${x.fs}font-size:17px;margin-top:8px;opacity:.9">${esc(x.v.texte)}</div></div>`},
+];
+
+function tplHtml(p, tpl){
+  const x = tplCtx(p, tpl);
+  return `<div class="tpl-root" data-w="${tpl.w}" style="width:${tpl.w}px;height:${tpl.h}px;background:${x.bg};color:${x.fg};${x.fb}">${tpl.render(x)}</div>`;
+}
+function tplFrame(p, tpl, extra = ''){
+  return `<div class="tpl-frame" style="aspect-ratio:${tpl.w}/${tpl.h}"${extra}>${tplHtml(p, tpl)}</div>`;
+}
+function scaleTpls(root){
+  (root || document).querySelectorAll('.tpl-frame').forEach(f => {
+    const r = f.querySelector('.tpl-root'); if (!r) return;
+    r.style.transform = `scale(${f.clientWidth / (+r.dataset.w)})`;
+    fitTpl(r);
+  });
+}
+function fitTpl(r){
+  r.querySelectorAll('[data-fit]').forEach(el => {
+    if (el.dataset.fs0 == null) el.dataset.fs0 = el.style.fontSize || '';
+    el.style.fontSize = el.dataset.fs0; let fs = parseFloat(getComputedStyle(el).fontSize), g = 0;
+    while (el.scrollWidth > el.clientWidth + 1 && fs > 12 && g++ < 60){ fs -= Math.max(1, fs * .06); el.style.fontSize = fs + 'px'; }
+  });
+}
+window.addEventListener('resize', () => { clearTimeout(window._tplT); window._tplT = setTimeout(() => scaleTpls(), 150); });
+
+Screens.studio = {
+  id:'studio', title:'Ton studio',
+  html(p){
+    if (!p.colors.palette || !p.typography.titre && !p.typography.pairId) return `<section class="screen"><h1>Ton <em>studio</em></h1><p class="lead">Termine d’abord tes levels : ton studio se remplit avec tes couleurs et tes typos.</p><button class="btn btn-red btn-block" data-act="nav" data-to="p/${p.id}/couleurs">Reprendre mon parcours</button></section>`;
+    const prem = isPremium(), cat = App.studioCat || 'posts';
+    const open = App.tplOpen && TEMPLATES.find(x => x.id === App.tplOpen);
+    if (open){
+      const S = p.studio || {vals: {}, bg: {}}, vals = S.vals[open.id] || {}, curBg = S.bg[open.id] || open.bg, c = Engine.tokens(p).c;
+      const locked = open.premium && !prem;
+      return `<section class="screen studio">
+        <button class="mini-btn" data-act="tplclose">← Tous les templates</button>
+        <h1 style="margin-top:10px">${esc(open.name)}${open.premium ? ' <span class="prem-tag">👑 Premium</span>' : ''}</h1>
+        <div class="tpl-edit-prev" id="tpl-prev">${tplFrame(p, open)}${locked ? '<div class="tpl-wm">Aperçu 👑 Premium</div>' : ''}</div>
+        <div class="tpl-fields">
+          ${open.fields.map(f => `<label class="field"><span>${f.l}</span>${(f.def(p) || '').length > 40 || /texte|avis|citation|avant|apres/.test(f.k)
+            ? `<textarea class="input area" data-sfield="${f.k}" id="sf-${f.k}" rows="3" placeholder="${esc(f.def(p))}">${esc(vals[f.k] || '')}</textarea>`
+            : `<input class="input" data-sfield="${f.k}" id="sf-${f.k}" value="${esc(vals[f.k] || '')}" placeholder="${esc(f.def(p))}" autocomplete="off">`}</label>`).join('')}
+          <p class="field-l">Couleur de fond</p>
+          <div class="bg-sw">${BG_ROLES.map(([k, l]) => `<button class="bgdot" data-act="tplbg" data-id="${k}" ${pressed(curBg === k)} style="background:${c[k]}" aria-label="Fond ${l}"></button>`).join('')}</div>
+          ${open.photo ? `<p class="field-l">Ta photo</p>
+            <div class="btn-row"><label class="btn btn-ghost btn-sm picker">${App.studioPhoto ? 'Changer ma photo' : 'Ajouter ma photo'}<input type="file" accept="image/*" data-tplphoto></label>${App.studioPhoto ? '<button class="btn btn-ghost btn-sm" data-act="tplphotoreset">Image de mon univers</button>' : ''}</div>
+            <p class="sec-sub" style="margin-top:6px">Ta photo reste sur ton appareil, elle n’est pas envoyée en ligne.</p>` : ''}
+        </div>
+      </section>`;
+    }
+    const list = TEMPLATES.filter(x => x.cat === cat);
+    return `<section class="screen studio">
+      <p class="bb-top-kick">BONUS UNLOCKED</p>
+      <h1>Ton <em>studio</em></h1>
+      <p class="lead">Des templates déjà à ton image. Change le texte, la couleur, ajoute ta photo, et télécharge.</p>
+      ${!prem ? `<div class="prem-card"><b>👑 Les templates premium</b><p>Photos, textures, carrousels, couvertures… Débloque toute la collection pour un feed qui a de l’allure.</p><button class="btn btn-red btn-sm" data-act="premium">Débloquer le premium</button></div>` : ''}
+      ${tabs2('studioCat', STUDIO_CATS, cat, k => TEMPLATES.filter(x => x.cat === k).length)}
+      <div class="tpl-grid">${list.map(tpl => `<button class="tpl-card" data-act="tplopen" data-id="${tpl.id}">
+        ${tplFrame(p, tpl)}${tpl.premium && !prem ? '<span class="tpl-lock">👑</span>' : ''}
+        <span class="tpl-name">${esc(tpl.name)}</span><small>${tpl.premium ? (prem ? 'Premium débloqué' : 'Premium') : 'Gratuit'}</small></button>`).join('')}</div>
+    </section>`;
+  },
+  bar(p){
+    const open = App.tplOpen && TEMPLATES.find(x => x.id === App.tplOpen);
+    if (open){
+      const locked = open.premium && !isPremium();
+      return `<div class="bar-row">${locked ? `<button class="btn btn-red grow" data-act="premium">👑 Débloquer pour télécharger</button>` : `<button class="btn btn-red grow" data-act="tpldl">Télécharger en PNG</button>`}</div>`;
+    }
+    return `<div class="bar-row"><button class="btn btn-ghost grow" data-act="nav" data-to="p/${p.id}/brand">Mon Brand Board</button></div>`;
+  },
+  after(){
+    scaleTpls($('#main'));
+    if (!Auth.isAdmin && Auth.user && !App._planChecked){
+      App._planChecked = true;
+      sb.from('profiles').select('*').eq('id', Auth.user.id).maybeSingle().then(({data}) => {
+        if (data && Auth.profile && data.plan !== Auth.profile.plan){ Auth.profile = data; if (App.view === Screens.studio) App.refresh(); }
+      });
+    }
+  },
+};
+ORDER.push('studio');
+
+function refreshTplPreview(){
+  const p = App.p, tpl = TEMPLATES.find(x => x.id === App.tplOpen), box = $('#tpl-prev .tpl-frame');
+  if (!p || !tpl || !box) return;
+  box.innerHTML = tplHtml(p, tpl); scaleTpls($('#tpl-prev'));
+}
+async function loadPhoto(file){
+  const url = URL.createObjectURL(file);
+  try {
+    const img = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = url; });
+    const k = Math.min(1, 1400 / Math.max(img.width, img.height)), cv = document.createElement('canvas');
+    cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k);
+    cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+    return cv.toDataURL('image/jpeg', .9);
+  } finally { URL.revokeObjectURL(url); }
+}
+async function exportTpl(p, tpl){
+  if (!window.html2canvas) throw {code:'lib'};
+  const host = document.createElement('div'); host.className = 'stage'; host.setAttribute('aria-hidden', 'true');
+  host.style.width = tpl.w + 'px';
+  host.innerHTML = tplHtml(p, tpl);
+  document.body.appendChild(host);
+  try {
+    const root = host.querySelector('.tpl-root');
+    const srcs = [...root.querySelectorAll('.tpl-img')].map(d => (d.style.backgroundImage.match(/url\(["']?(.*?)["']?\)/) || [])[1]).filter(Boolean);
+    await Promise.all(srcs.map(s => new Promise(r => { const i = new Image(); i.onload = i.onerror = r; i.src = s; })));
+    try { await document.fonts.ready; } catch(e){}
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    fitTpl(root); await svgToImg(root);
+    const scale = 1080 / tpl.w * (tpl.id === 'youtube' ? 1280 / 1080 : tpl.id === 'linkedin' ? 1584 / 1080 : 1);
+    const cv = await html2canvas(root, {scale, backgroundColor: null, logging: false, useCORS: true});
+    return {filename: `${slug(p.identity.name)}-${tpl.id}.png`, data: await toBlob(cv)};
+  } finally { host.remove(); }
+}
 
 function toggleIn(arr, v, max){
   const i = arr.indexOf(v);
@@ -2977,6 +3289,48 @@ document.addEventListener('change', e => {
   });
 });
 
+Object.assign(Actions, {
+  tplopen(d){ App.tplOpen = d.id; App.render(true); },
+  tplclose(){ App.tplOpen = null; App.render(true); },
+  tplbg(d){ Store.update(p => { p.studio = p.studio || {vals: {}, bg: {}}; p.studio.bg[App.tplOpen] = d.id; }); },
+  tplphotoreset(){ App.studioPhoto = null; App.refresh(); },
+  premium(){
+    if (PREMIUM_URL){ window.open(PREMIUM_URL, '_blank', 'noopener'); return; }
+    const p = App.p, who = (Auth.profile && (Auth.profile.full_name || Auth.profile.email)) || '';
+    location.href = `mailto:contact.digitalrebelle@gmail.com?subject=${encodeURIComponent('Je veux les templates premium 👑')}&body=${encodeURIComponent(`Coucou Lyliie !\n\nJe voudrais débloquer les templates premium de RBL Identity.\n\n${who}${p ? `\nMa marque : ${p.identity.name || ''}` : ''}`)}`;
+  },
+  async tpldl(d, btn){
+    if (App.busy) return;
+    const p = App.p, tpl = TEMPLATES.find(x => x.id === App.tplOpen); if (!p || !tpl) return;
+    if (tpl.premium && !isPremium()) return Actions.premium();
+    const label = btn.textContent; App.busy = true; btn.disabled = true; btn.textContent = 'Préparation…';
+    try {
+      const dl = await Downloads.get(); if (!dl){ toast('Téléchargement indisponible ici'); return; }
+      await dl.save(await exportTpl(p, tpl)); toast('Téléchargé 👑');
+    } catch(e){ console.error(e); toast(e && e.code === 'lib' ? 'Les outils d’export ne se sont pas chargés, réessaie' : e && e.code === 'declined' ? 'Téléchargement annulé' : 'Le téléchargement a échoué, réessaie'); }
+    finally { App.busy = false; btn.disabled = false; btn.textContent = label; }
+  },
+  async setplan(d, btn){
+    if (!Auth.isAdmin) return;
+    btn.disabled = true;
+    const {error} = await sb.rpc('set_plan', {target: d.id, new_plan: d.plan});
+    btn.disabled = false;
+    if (error){ console.error(error); toast('Impossible : as-tu bien lancé le script SQL du lot 4 ?'); return; }
+    const row = App.adminData && App.adminData.projects.filter(r => r.owner_id === d.id);
+    (row || []).forEach(r => { if (r.profiles) r.profiles.plan = d.plan; });
+    toast(d.plan === 'premium' ? 'Premium activé 👑' : 'Premium retiré'); App.refresh();
+  },
+});
+document.addEventListener('input', e => {
+  const t = e.target.closest('[data-sfield]'); if (!t || !App.p || !App.tplOpen) return;
+  const id = App.tplOpen;
+  Store.update(p => { p.studio = p.studio || {vals: {}, bg: {}}; p.studio.vals[id] = p.studio.vals[id] || {}; p.studio.vals[id][t.dataset.sfield] = t.value; }, {silent: true});
+  refreshTplPreview();
+});
+document.addEventListener('change', async e => {
+  const t = e.target.closest('[data-tplphoto]'); if (!t || !t.files || !t.files[0]) return;
+  try { App.studioPhoto = await loadPhoto(t.files[0]); App.refresh(); } catch(err){ console.error(err); toast('Cette image ne peut pas être lue'); }
+});
 document.addEventListener('click', e => {
   const sent = e.target.closest('[data-sent]');
   if (sent){ Store.update(p => { p.send.sentAt = Date.now(); }, {silent:true}); toast('Ton message s’ouvre : pense à joindre le PDF'); return; }
