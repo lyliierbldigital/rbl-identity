@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RBL Identity</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050505">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="RBL Identity">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Montserrat:wght@600;800&family=Poppins:wght@600&family=Raleway:wght@600&family=Lato:wght@400;700&family=Open+Sans:wght@400&family=Roboto:wght@400&family=Inter:wght@400&family=Caveat:wght@600;700&family=Rajdhani:wght@600;700&family=Bebas+Neue&family=Cormorant+Garamond:wght@500;700&family=DM+Serif+Display&family=Fraunces:opsz,wght@9..144,400;9..144,900&family=Inter+Tight:wght@400;600;800&family=Manrope:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@600;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
@@ -785,6 +793,49 @@ a.row{text-decoration:none;color:var(--text)}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* ---------- v4.3 : thème complet aux couleurs de la cliente ---------- */
+body.themed-full,body.themed-full .app{background:var(--bg);color:var(--text)}
+@media (min-width:560px){body.themed-full{background:var(--bg)}}
+.themed-full .topbar{background:var(--bg);border-bottom-color:var(--line)}
+.themed-full .rbl-logo{color:var(--text)}
+.themed-full .rbl-logo .l2,.themed-full .rbl-logo .crown{color:var(--red)}
+.themed-full .bar{background:var(--bg);border-top-color:var(--line)}
+.themed-full .tabbar{background:var(--surface);border-top-color:var(--line)}
+.themed-full .tab{color:var(--muted)}
+.themed-full .tab.on{color:var(--red)}
+.themed-full .btn-red,.themed-full a.btn-red,.themed-full .lvl-tag,.themed-full .tabs2 button.on,.themed-full .msg.mine,.themed-full .stats .hot,.themed-full .stats .hot small,.themed-full .badge,.themed-full .cm-ic,.themed-full .lv-0,.themed-full .talk.unread,.themed-full .link-btn.red,.themed-full .chip.no[aria-pressed="true"],.themed-full .proj-acts .confirm,.themed-full .row em.unread-badge{color:var(--on-red)}
+.themed-full .cm-ic .crown{color:var(--on-red)}
+.themed-full .btn-dark,.themed-full a.btn-dark{background:var(--text);color:var(--bg)}
+.themed-full .btn-ghost{background:var(--surface);color:var(--text);border-color:var(--line)}
+.themed-full .lv-tile,.themed-full .fmt,.themed-full .uni,.themed-full .prof-head,.themed-full .faq details,.themed-full .tabs2,.themed-full .optcard,.themed-full .pick,.themed-full .resume,.themed-full .row,.themed-full .proj,.themed-full .swatch,.themed-full .sw-wrap,.themed-full .legi-row,.themed-full .comm-mini,.themed-full .note,.themed-full .tpl-frame,.themed-full .imgpick{background:var(--surface);border-color:var(--line);color:var(--text)}
+.themed-full .fmt.big{background:var(--raised);border-color:var(--line)}
+.themed-full .lv-tile span,.themed-full .lvl-count,.themed-full .tabs2 button{color:var(--muted)}
+.themed-full .seg span{background:var(--line)}
+.themed-full .seg.done span{background:var(--text)}
+.themed-full .chip,.themed-full .input{background:var(--surface);border-color:var(--line);color:var(--text)}
+.themed-full .chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.themed-full .pick[aria-pressed="true"],.themed-full .optcard[aria-pressed="true"],.themed-full .prem-card{background:var(--red-soft)}
+.themed-full .row .thumb.ic{background:var(--raised);color:var(--text)}
+.themed-full .colpick,.themed-full .tpl-card{color:var(--text)}
+.themed-full .colpick[aria-pressed="true"] .sw,.themed-full .bgdot[aria-pressed="true"]{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--red)}
+.themed-full .hero,.themed-full .community,.themed-full .comm-big{background:var(--surface);color:var(--text)}
+.themed-full .comm-big .btn{color:var(--on-red)}
+.themed-full .studio-cta{background:var(--red-soft)}
+.themed-full .tpl-card .tpl-frame,.themed-full .tpl-edit-prev .tpl-frame{box-shadow:0 0 0 1px var(--line)}
+.themed-full .sheet{background:var(--bg)}
+.themed-full .tagline{color:var(--muted)}
+.themed-full .script{color:var(--text)}
+
+/* ---------- v4.4 : levels cliquables avec progression ---------- */
+button.lv-tile{font:inherit;color:var(--text);cursor:pointer;transition:transform .15s var(--ease),border-color .2s}
+button.lv-tile:active{transform:scale(.96)}
+.lv-tile.ok{border-color:rgba(var(--red-rgb),.7)!important}
+.lv-tile.lock{opacity:.45}
+.lv-bar{display:block;width:80%;height:4px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:4px}
+.lv-bar>i{display:block;height:100%;background:var(--red);border-radius:4px;transition:width .5s var(--ease)}
+.lv-pct{font-family:var(--ff-label);font-weight:700;font-size:11.5px;letter-spacing:.05em;color:var(--muted)}
+.lv-tile.ok .lv-pct{color:var(--red)}
 </style>
 </head>
 <body>
@@ -1213,8 +1264,18 @@ Screens.home = {
         <span class="mini-pal">${miniPal(last)}</span>
         <span><b>${esc(last.identity.name || 'Projet sans nom')}</b><small>${status(last)}</small></span>
         <em>Reprendre</em></button>` : ''}
-      <p class="kick-c">EN 6 LEVELS SEULEMENT</p>
-      <div class="lv-grid">${LV_TILES.map(([l, ic], i) => `<div class="lv-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ic}</svg><span>${i < 5 ? 'Level 0' + (i + 1) : 'Boss final'}</span><b>${l}</b></div>`).join('')}</div>
+      <p class="kick-c">${last ? 'TA PROGRESSION · touche un level pour le modifier' : 'EN 6 LEVELS SEULEMENT'}</p>
+      <div class="lv-grid">${LV_TILES.map(([l, ic], i) => {
+        const boss = i === 5, st = STEPS[i];
+        const pct = !last ? 0 : boss ? (last.generatedAt ? 100 : 0) : lvPct(last, st.id);
+        const reach = last ? Engine.firstIncomplete(last) : 0;
+        const lock = last && (boss ? !last.generatedAt && Engine.doneCount(last) < 5 : !last.generatedAt && i > reach && !st.done(last));
+        const ok = last && (boss ? !!last.generatedAt : st.done(last));
+        return `<button class="lv-tile${ok ? ' ok' : ''}${lock ? ' lock' : ''}" data-act="lvtile" data-k="${i}" aria-label="${boss ? 'Boss final' : 'Level 0' + (i + 1)} ${l}${last ? ', ' + pct + ' %' : ''}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ic}</svg>
+          <span>${boss ? 'Boss final' : 'Level 0' + (i + 1)}</span><b>${l}</b>
+          ${last ? `<i class="lv-bar"><i style="width:${pct}%"></i></i><small class="lv-pct">${lock ? '🔒' : ok && pct === 100 ? '✓ 100 %' : pct + ' %'}</small>` : ''}
+        </button>`; }).join('')}</div>
       ${CONTACT.community ? `<a class="comm-mini" href="${CONTACT.community}" target="_blank" rel="noopener">
         <span class="cm-ic">${CROWN}</span>
         <span><b>Rejoins la Rébellion, c’est gratuit</b><small>Échange avec Lyliie et les autres créatrices</small></span>
@@ -1243,7 +1304,7 @@ Screens.profil = {
         <button class="row" data-act="logout"><span class="thumb ic">${svg('<path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/>')}</span><span><b>Se déconnecter</b></span><em></em></button>
       </div>
       <p class="sign">by Lyliie RBL Digital</p>
-      <p class="fine" style="text-align:center">Version 4.0</p>
+      <p class="fine" style="text-align:center">Version 4.4</p>
     </section>`;
   },
 };
@@ -2128,6 +2189,7 @@ async function onSession(session){
   Auth.user = u; Auth.profile = null; remoteIds.clear();
   Comments.pid = null; Comments.list = []; App.adminData = null; Store.others = new Map();
   if (u){
+    App.setOtpEmail(null);
     const {data} = await sb.from('profiles').select('*').eq('id', u.id).maybeSingle();
     Auth.profile = data || {id: u.id, email: u.email, role: 'client'};
     Store.adapter = RemoteAdapter;
@@ -2164,9 +2226,9 @@ Screens.connexion = {
     return `<section class="screen">
       <div class="home-top">${logo('logo-lg')}<p class="tagline">TA MARQUE, TON UNIVERS</p></div>
       ${coachCard('accueil', null, {always: true, big: true})}
-      ${App.otpEmail ? `
+      ${App.otpEmail() ? `
         <h1>Vérifie tes e-mails</h1>
-        <p class="lead">On a envoyé un lien de connexion à <b>${esc(App.otpEmail)}</b>. Clique dessus, ou entre le code reçu dans l’e-mail.</p>
+        <p class="lead">On a envoyé un lien de connexion à <b>${esc(App.otpEmail())}</b>. Clique dessus, ou entre le code reçu dans l’e-mail.</p>
         <label class="field"><span>Code reçu</span><input class="input" id="login-code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="12345678"></label>
         <button class="btn btn-red btn-block" data-act="verify">Valider le code</button>
         <button class="mini-btn" data-act="changeemail" style="display:block;margin:14px auto 0">Utiliser une autre adresse</button>
@@ -2408,6 +2470,14 @@ Engine.pair = function(p){
 };
 const _tokens = Engine.tokens.bind(Engine);
 Engine.tokens = function(p){ const t = _tokens(p), s = this.sub(p); t.fs = this.stack(s.name, s.serif); t.sw = s.w; return t; };
+const LV_PARTS = {
+  couleurs: p => [!!p.colors.palette, !!(p.colors.mode || p.colors.variant)],
+  mood: p => [(p.mood.univers || []).length > 0, (p.mood.ambiances || []).length > 0 || p.mood.moods.length > 1],
+  typos: p => [!!(p.typography.titre || p.typography.pairId), !!(p.typography.sous || p.typography.pairId), !!(p.typography.texte || p.typography.pairId)],
+  visuels: p => [p.visual.images.some(x => String(x).startsWith('illu')), p.visual.images.some(x => String(x).startsWith('photo')), (p.visual.icons || []).length > 0, (p.visual.textures || []).length > 0, (p.visual.shapes || []).length > 0],
+  identite: p => { const I = p.identity; return [!!I.name.trim(), (I.personality || []).length > 0, !!I.logoStyle || (I.elements || []).length > 0, (I.targets || []).length > 0 || !!I.audience, !!(I.problem || '').trim() || (I.powers || []).length > 0, (I.values || []).length > 0]; },
+};
+const lvPct = (p, id) => { const a = (LV_PARTS[id] || (() => []))(p); return a.length ? Math.round(a.filter(Boolean).length / a.length * 100) : 0; };
 STEPS[0].done = p => !!p.colors.palette; STEPS[0].need = 'Choisis au moins une couleur.';
 STEPS[1].need = 'Choisis au moins un univers.';
 STEPS[2].done = p => !!p.typography.pairId || !!(p.typography.titre && p.typography.texte); STEPS[2].need = 'Choisis au moins ta typo de titres et ta typo de textes.';
@@ -2637,14 +2707,29 @@ Object.assign(SECTIONS, {posi: 'Positionnement', contenu: 'Style de contenu'});
 /* ---------- Thème progressif : l’app prend l’identité de la cliente ---------- */
 function applyTheme(view, p){
   const root = document.documentElement.style;
-  const reset = () => { ['--red','--red-rgb','--on-red','--ff-d','--red-soft'].forEach(k => root.removeProperty(k)); document.body.classList.remove('themed'); };
+  const reset = () => { ['--red','--red-rgb','--on-red','--ff-d','--red-soft','--bg','--surface','--raised','--text','--muted','--line','color-scheme'].forEach(k => root.removeProperty(k)); document.body.classList.remove('themed','themed-full'); };
   if (!Auth.user || !view || ['admin','connexion','confidentialite'].includes(view.id)) return reset();
   let proj = p;
   if (!proj && ['home','projets','profil','faq'].includes(view.id)) proj = Store.sorted().find(x => x.generatedAt) || null;
   if (!proj || !proj.colors || !proj.colors.palette) return reset();
-  const pal = proj.colors.palette, bg = '#050505';
+  const pal = proj.colors.palette;
+  // Brand Board généré → l'app prend aussi le fond et le texte de la cliente
+  const full = !!(proj.generatedAt && pal.fond && pal.texte);
+  const bg = full ? pal.fond : '#050505';
+  if (full){
+    const light = lum(bg) > .45;
+    let txt = pal.texte; if (contrast(txt, bg) < 4.5) txt = onColor(bg);
+    root.setProperty('--bg', bg); root.setProperty('--text', txt);
+    root.setProperty('--surface', adjust(bg, light ? -4 : 6)); root.setProperty('--raised', adjust(bg, light ? -7 : 10));
+    root.setProperty('--line', rgba(txt, .14)); root.setProperty('--muted', rgba(txt, .66));
+    root.setProperty('color-scheme', light ? 'light' : 'dark');
+    document.body.classList.add('themed-full');
+  } else {
+    ['--bg','--surface','--raised','--text','--muted','--line','color-scheme'].forEach(k => root.removeProperty(k));
+    document.body.classList.remove('themed-full');
+  }
   let acc = [pal.principale, pal.accent, pal.secondaire].find(h => contrast(h, bg) >= 3.2) || pal.principale;
-  let guard = 0; while (contrast(acc, bg) < 3.2 && guard++ < 8) acc = adjust(acc, 8);
+  let guard = 0; const dir = lum(bg) > .45 ? -8 : 8; while (contrast(acc, bg) < 3.2 && guard++ < 10) acc = adjust(acc, dir);
   const [r, g, b] = hexToRgb(acc);
   root.setProperty('--red', acc); root.setProperty('--red-rgb', `${r},${g},${b}`); root.setProperty('--on-red', onColor(acc));
   root.setProperty('--red-soft', `rgba(${r},${g},${b},.16)`);
@@ -2766,6 +2851,18 @@ function go(path){ const target = '#/' + path; if (location.hash === target) App
 const ORDER = ['connexion','home','profil','faq','couleurs','mood','typos','visuels','identite','generation','brand','modifier','envoyer','export','projets'];
 const App = {
   view: null, p: null, q: null, token: 0, pendingDel: null, pulse: null, editRole: null, typoInv: false, sheet: false, sheetAnim: false, support: 'tout', busy: false, projQuery: '', projSort: 'recent',
+  _otpEmail: null,
+  otpEmail(){
+    if (this._otpEmail) return this._otpEmail;
+    try { return localStorage.getItem('rbl.identity.otpEmail') || null; } catch(e){ return null; }
+  },
+  setOtpEmail(v){
+    this._otpEmail = v || null;
+    try {
+      if (v) localStorage.setItem('rbl.identity.otpEmail', v);
+      else localStorage.removeItem('rbl.identity.otpEmail');
+    } catch(e){}
+  },
   render(animate = true){
     this.token++;
     const {parts, q} = parseRoute();
@@ -3122,6 +3219,18 @@ const revealStrips = () => requestAnimationFrame(() => $$('.pal-strip').forEach(
 
 const Actions = {
   nav(d){ go(d.to || ''); },
+  lvtile(d){
+    const last = Store.sorted()[0], k = +d.k;
+    if (!last) return Actions.start();
+    if (k === 5){
+      if (last.generatedAt) return go(`p/${last.id}/brand`);
+      if (Engine.doneCount(last) === 5) return go(`p/${last.id}/identite`);
+      return toast('Termine tes 5 levels pour affronter le Boss final 👑');
+    }
+    const reach = Engine.firstIncomplete(last), st = STEPS[k];
+    if (!last.generatedAt && k > reach && !st.done(last)) return toast(`Termine d’abord le Level 0${reach + 1} 💪`);
+    go(`p/${last.id}/${st.id}${last.generatedAt ? '?retour=brand' : ''}`);
+  },
   async start(){ try { const p = await Store.create(); go(`p/${p.id}/couleurs`); } catch(e){ console.error(e); toast('Création impossible, vérifie ta connexion'); } },
   energy(d){ App.pulse = 'pal'; App.editRole = null; Store.update(p => { if (toggleIn(p.colors.energies, d.id, 3)){ p.colors.custom = {}; syncPalette(p); } }); revealStrips(); },
   palette(d){ App.pulse = 'pal'; Store.update(p => { if (p.colors.variant !== d.id) p.colors.custom = {}; p.colors.variant = d.id; syncPalette(p); }); },
@@ -3134,18 +3243,18 @@ const Actions = {
     const {error} = await sb.auth.signInWithOtp({email, options: {emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true, data: {consent_at: new Date().toISOString()}}});
     App.busy = false;
     if (error){ st.textContent = error.status === 429 ? 'Trop de demandes. Attends quelques minutes puis réessaie.' : 'Envoi impossible : ' + error.message; return; }
-    App.otpEmail = email; App.refresh();
+    App.setOtpEmail(email); App.refresh();
   },
   async verify(){
     const st = $('#login-status'), code = (($('#login-code') || {}).value || '').replace(/\D/g, '');
     if (code.length < 6){ st.textContent = 'Entre le code reçu par e-mail.'; return; }
     st.textContent = 'Vérification…';
-    const {error} = await sb.auth.verifyOtp({email: App.otpEmail, token: code, type: 'email'});
+    const {error} = await sb.auth.verifyOtp({email: App.otpEmail(), token: code, type: 'email'});
     if (error){ st.textContent = 'Code invalide ou expiré. Redemande un lien.'; return; }
-    App.otpEmail = null;
+    App.setOtpEmail(null);
   },
-  changeemail(){ App.otpEmail = null; App.refresh(); },
-  async logout(){ Store.flush(); await sb.auth.signOut(); App.otpEmail = null; location.hash = '#/'; },
+  changeemail(){ App.setOtpEmail(null); App.refresh(); },
+  async logout(){ Store.flush(); await sb.auth.signOut(); App.setOtpEmail(null); location.hash = '#/'; },
   thread(d){
     const id = d.id && App.thread !== d.id ? d.id : null;
     App.thread = id; App.sheet = false; App.sheetAnim = !!id; App.refresh(); App.sheetAnim = false;
@@ -3382,5 +3491,6 @@ const queueSession = s => { sessionChain = sessionChain.then(() => onSession(s))
   Downloads.get();
 })();
 </script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
 </body>
 </html>
